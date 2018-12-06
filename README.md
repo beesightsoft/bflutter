@@ -2,13 +2,8 @@
 
 BeeSightSoft Flutter core
 
-## Getting Started
+## Flutter package
 
-This project is a starting point for a Dart
-[package](https://flutter.io/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+https://pub.dartlang.org/packages/bflutter
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+Pub Authorized by nhan.cao@beesightsoft.com
