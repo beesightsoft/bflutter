@@ -1,3 +1,7 @@
-## [0.0.1] - TODO: Add release date.
+## [0.0.1] - Dec 6, 2018.
 
-* TODO: Describe initial release.
+* Initial release.
+
+## [0.0.2] - Dec 6, 2018.
+
+* Initial simple bloc.

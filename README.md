@@ -1,6 +1,6 @@
 # bflutter
 
-BeeSightSoft Flutter core
+BeeSight Soft Flutter core
 
 ## Flutter package
 
