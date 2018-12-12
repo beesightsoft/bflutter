@@ -1,23 +1,21 @@
-library bflutter;
-
-import 'dart:async';
 import 'package:rxdart/rxdart.dart';
 
-class Bloc<M> {
-  //Input
-  Sink<M> get _inputBloc => _subject;
+class Bloc<I, O> {
+  var subject = BehaviorSubject<I>();
+  Function(Observable<I> event) business =
+      (Observable<I> event) => Observable<O>.empty();
 
-  //Output
-  var _subject = BehaviorSubject<M>();
-  Stream<M> _outputBloc;
+  void push(I event) => subject.add(event);
 
-  Bloc() {
-    _outputBloc = _subject.distinct().asBroadcastStream();
+  Stream<O> stream() => business(subject);
+
+  void dispose() {
+    subject.close();
   }
 
-  // Add model to Bloc
-  addToBloc(M data) => _inputBloc.add(data);
-
-  // Get model from Bloc
-  Stream<M> getFromBloc() => _outputBloc;
+  static Bloc build<I, O>(Function(Observable<I> event) business) {
+    var blocUnit = Bloc<I, O>();
+    blocUnit.business = business;
+    return blocUnit;
+  }
 }
