@@ -1,21 +1,29 @@
 import 'package:rxdart/rxdart.dart';
 
 class Bloc<I, O> {
-  var subject = BehaviorSubject<I>();
-  Function(Observable<I> event) business =
-      (Observable<I> event) => Observable<O>.empty();
 
-  void push(I event) => subject.add(event);
+  // @nhancv 2019-10-04: Data driven
+  final BehaviorSubject<I> _subject = BehaviorSubject<I>();
 
-  Stream<O> stream() => business(subject);
+  // @nhancv 2019-10-04: Dynamic logic
+  Function(Observable<I> input) logic =
+      (Observable<I> input) => Observable<O>.empty();
 
+  // @nhancv 2019-10-04: Push input data to BLoC
+  void push(I input) => _subject.sink.add(input);
+
+  // @nhancv 2019-10-04: Stream output from BLoC
+  Stream<O> stream() => logic(_subject);
+
+  // @nhancv 2019-10-04: Dispose BLoC
   void dispose() {
-    subject.close();
+    _subject.close();
   }
 
-  static Bloc build<I, O>(Function(Observable<I> event) business) {
+  // @nhancv 2019-10-04: Build a BLoC instance with logic function as a parameter
+  static Bloc build<I, O>(Function(Observable<I> input) logic) {
     var blocUnit = Bloc<I, O>();
-    blocUnit.business = business;
+    blocUnit.logic = logic;
     return blocUnit;
   }
 }
