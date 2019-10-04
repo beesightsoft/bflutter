@@ -9,3 +9,7 @@
 ## [0.0.3] - Dec 12, 2018.
 
 * New Bloc template. Example at: https://github.com/beesightsoft/bflutter_poc
+
+## [0.1.0] - Oct 04, 2019.
+
+* Refactor BLoC. Example at: https://github.com/beesightsoft/bflutter_poc
