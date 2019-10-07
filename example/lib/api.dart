@@ -2,10 +2,10 @@ import 'package:bflutter_poc/global.dart';
 import 'package:http/http.dart' as http;
 
 class Api {
-  static final Api _instance = Api._private();
-
   // @nhancv 10/7/2019: Create api instance
   Api._private();
+
+  static final Api _instance = Api._private();
 
   factory Api() => _instance;
 

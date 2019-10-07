@@ -14,9 +14,9 @@ class Env {
 
 /// Global env
 class Global {
-  static final Global _instance = Global._private();
-
   Global._private();
+
+  static final Global _instance = Global._private();
 
   factory Global() => _instance;
 

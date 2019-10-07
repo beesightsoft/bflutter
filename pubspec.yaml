@@ -11,6 +11,9 @@ dependencies:
   flutter:
     sdk: flutter
   rxdart: ^0.22.2
+  sqflite: ^1.1.7
+  path: ^1.6.4
+  uuid: 2.0.1
 
 dev_dependencies:
   flutter_test:
