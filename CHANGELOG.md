@@ -17,3 +17,7 @@
 ## [0.1.1] - Oct 07, 2019.
 
 * Add example to core
+
+## [0.1.1+1] - Oct 07, 2019.
+
+* Update pub template
