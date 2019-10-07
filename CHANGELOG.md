@@ -13,3 +13,7 @@
 ## [0.1.0] - Oct 04, 2019.
 
 * Refactor BLoC. Example at: https://github.com/beesightsoft/bflutter_poc
+
+## [0.1.1] - Oct 07, 2019.
+
+* Add example to core
