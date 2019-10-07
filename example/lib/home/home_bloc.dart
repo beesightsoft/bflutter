@@ -7,7 +7,7 @@ import 'package:rxdart/rxdart.dart';
 
 /// Implement logic for Home screen
 class HomeBloc {
-  final getUserInfo = Bloc<String, User>();
+  final getUserInfo = Bloc<String, UserDetail>();
 
   HomeBloc() {
     _initGetUserInfoLogic();
@@ -18,7 +18,7 @@ class HomeBloc {
         (Observable<String> input) => input.asyncMap(Api().getUserInfo).asyncMap(
               (data) {
                 if (data.statusCode == 200) {
-                  return User.fromJson(json.decode(data.body));
+                  return UserDetail.fromJson(json.decode(data.body));
                 } else {
                   throw Exception(data.body);
                 }

@@ -15,11 +15,14 @@ class Api {
   // @nhancv 10/7/2019: Search user request
   Future<http.Response> searchUsers(String query) {
     String url = '$apiBaseUrl/search/users?q=$query';
+    print(url);
     return http.get(url);
   }
 
   // @nhancv 10/7/2019: Get user info request
   Future<http.Response> getUserInfo(String username) {
-    return http.get('$apiBaseUrl/users/$username');
+    String url = '$apiBaseUrl/users/$username';
+    print(url);
+    return http.get(url);
   }
 }

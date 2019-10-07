@@ -8,7 +8,7 @@ import 'package:rxdart/rxdart.dart';
 /// Implement logic for Detail screen
 class DetailBloc {
   final loading = BlocDefault<bool>();
-  final getUserInfo = Bloc<String, User>();
+  final getUserInfo = Bloc<String, UserDetail>();
 
   DetailBloc() {
     _initGetUserInfoLogic();
@@ -25,7 +25,7 @@ class DetailBloc {
         .asyncMap(
           (data) {
             if (data.statusCode == 200) {
-              return User.fromJson(json.decode(data.body));
+              return UserDetail.fromJson(json.decode(data.body));
             } else {
               throw Exception(data.body);
             }

@@ -1,13 +1,13 @@
 
 /// User model: https://flutter.dev/docs/development/data-and-backend/json
-class UserBase {
+class User {
   final String login;
   final String avatarUrl;
 
-  UserBase({this.login, this.avatarUrl});
+  User({this.login, this.avatarUrl});
 
-  factory UserBase.fromJson(Map<String, dynamic> json) {
-    return UserBase(
+  factory User.fromJson(Map<String, dynamic> json) {
+    return User(
         login: json['login'] as String,
         avatarUrl: json['avatar_url'] as String);
   }

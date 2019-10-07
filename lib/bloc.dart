@@ -32,3 +32,10 @@ class Bloc<I, O> {
     return blocUnit;
   }
 }
+
+/// Default Bloc
+class BlocDefault<I> extends Bloc<I, I> {
+  BlocDefault() {
+    this.logic = (Observable<I> data) => data;
+  }
+}

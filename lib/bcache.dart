@@ -9,9 +9,9 @@ class Piece {
   String body;
 
   Piece({String id, String prefix, String body}) {
-    if(id != null) this.id = id;
-    if(prefix != null) this.prefix = prefix;
-    if(body != null) this.body = body;
+    if (id != null) this.id = id;
+    if (prefix != null) this.prefix = prefix;
+    if (body != null) this.body = body;
   }
 
   factory Piece.fromJson(String prefix, String body) {
@@ -31,8 +31,6 @@ class Piece {
 }
 
 class BCache {
-  Future<Database> database;
-
   // @nhancv 10/7/2019: Create api instance
   BCache._private();
 
@@ -40,8 +38,13 @@ class BCache {
 
   factory BCache() => _instance;
 
+  // @nhancv 10/7/2019: Database instance
+  Future<Database> database;
+
+  // @nhancv 10/7/2019: Table name
   final _tableName = 'cache_data';
 
+  // @nhancv 10/7/2019: Init database connection
   Future<void> init() async {
     database = openDatabase(
       // Set the path to the database. Note: Using the `join` function from the
@@ -61,6 +64,7 @@ class BCache {
     );
   }
 
+  // @nhancv 10/7/2019: Insert data to database
   Future<void> insert(Piece piece) async {
     // Get a reference to the database.
     final Database db = await database;
@@ -75,7 +79,8 @@ class BCache {
     );
   }
 
-  Future<List<Piece>> query<T>(String prefix) async {
+  // @nhancv 10/7/2019: Query data from database
+  Future<List<Piece>> query(String prefix) async {
     // Get a reference to the database.
     final Database db = await database;
 
@@ -92,6 +97,7 @@ class BCache {
     });
   }
 
+  // @nhancv 10/7/2019: Update data
   Future<void> update(Piece piece) async {
     // Get a reference to the database.
     final db = await database;
@@ -105,6 +111,7 @@ class BCache {
     );
   }
 
+  // @nhancv 10/7/2019: Remove data by id
   Future<void> delete(String id) async {
     // Get a reference to the database.
     final db = await database;
@@ -115,6 +122,15 @@ class BCache {
       where: "id = ?",
       whereArgs: [id],
     );
+  }
+
+  // @nhancv 10/7/2019: Execute SQL query
+  Future<void> execute(String sql, [List<dynamic> arguments]) async {
+    // Get a reference to the database.
+    final db = await database;
+
+    // Execute sql with arguments.
+    await db.execute(sql, arguments);
   }
 }
 

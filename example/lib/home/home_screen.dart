@@ -55,7 +55,7 @@ class __HomeInfoState extends State<_HomeInfo> {
                     child: CircularProgressIndicator(),
                   );
                 }
-                User user = snapshot.data;
+                UserDetail user = snapshot.data;
                 return Column(
                   children: <Widget>[
                     CircleAvatar(

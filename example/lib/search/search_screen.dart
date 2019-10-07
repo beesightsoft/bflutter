@@ -1,4 +1,5 @@
 import 'package:bflutter_poc/detail/detail_screen.dart';
+import 'package:bflutter_poc/model/net_cache.dart';
 import 'package:bflutter_poc/model/user.dart';
 import 'package:bflutter_poc/search/search_bloc.dart';
 import 'package:flutter/material.dart';
@@ -83,10 +84,16 @@ class ___SearchInfoState extends State<_SearchInfo> {
                 if (snapshot.hasError) {
                   return Text(snapshot.error.toString());
                 }
-                if (!snapshot.hasData || (snapshot?.data)?.length == 0) {
+                if (!snapshot.hasData) {
                   return Text('No data');
                 }
-                List<UserBase> users = snapshot.data;
+                // @nhancv 10/7/2019: Get data
+                NetCache<List<User>> netCacheData = snapshot.data;
+                if (!netCacheData.hasData ||
+                    (netCacheData?.data)?.length == 0) {
+                  return Text('No data');
+                }
+                List<User> users = netCacheData.data;
                 return ListView.builder(
                   itemCount: users.length,
                   itemBuilder: (BuildContext context, int index) {
@@ -100,7 +107,8 @@ class ___SearchInfoState extends State<_SearchInfo> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Text('${users[index].login}'),
+                            child: Text(
+                                '${users[index].login} (FromNet: ${netCacheData.fromNet})'),
                           ),
                         ],
                       ),
