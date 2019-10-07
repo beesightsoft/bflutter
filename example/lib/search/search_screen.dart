@@ -1,8 +1,12 @@
 import 'package:bflutter_poc/detail/detail_screen.dart';
-import 'package:bflutter_poc/model/user_base.dart';
+import 'package:bflutter_poc/model/user.dart';
 import 'package:bflutter_poc/search/search_bloc.dart';
 import 'package:flutter/material.dart';
 
+/// Search screen
+/// Get input from user
+/// Call api to get data list
+/// Render it
 class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

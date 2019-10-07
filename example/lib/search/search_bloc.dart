@@ -2,9 +2,10 @@ import 'dart:convert';
 
 import 'package:bflutter/bflutter.dart';
 import 'package:bflutter_poc/api.dart';
-import 'package:bflutter_poc/model/user_base.dart';
+import 'package:bflutter_poc/model/user.dart';
 import 'package:rxdart/rxdart.dart';
 
+/// Implement logic for Search screen
 class SearchBloc {
   final loading = BlocDefault<bool>();
   final searchUser = Bloc<String, List<UserBase>>();
@@ -22,7 +23,7 @@ class SearchBloc {
           loading.push(true);
           if (input.isEmpty) return Observable.just(null);
           return Observable.fromFuture(Api().searchUsers(input));
-        }).map((data) {
+        }).asyncMap((data) {
           if (data == null) {
             return <UserBase>[];
           }

@@ -1,9 +1,12 @@
 import 'dart:convert';
 
 import 'package:bflutter_poc/detail/detail_bloc.dart';
-import 'package:bflutter_poc/model/user_base.dart';
+import 'package:bflutter_poc/model/user.dart';
 import 'package:flutter/material.dart';
 
+/// Detail screen
+/// Get user id from search screen
+/// Get user info via github public api
 class DetailScreen extends StatelessWidget {
   final UserBase userBase;
 

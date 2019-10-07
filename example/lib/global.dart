@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
+/// Environment declare here
 class Env {
   Env._({@required this.apiBaseUrl});
 
@@ -11,6 +12,7 @@ class Env {
   }
 }
 
+/// Global env
 class Global {
   static final Global _instance = Global._private();
 

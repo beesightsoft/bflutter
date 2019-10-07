@@ -21,3 +21,7 @@
 ## [0.1.1+1] - Oct 07, 2019.
 
 * Update pub template
+
+## [0.1.1+2] - Oct 07, 2019.
+
+* Update example

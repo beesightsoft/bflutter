@@ -1,10 +1,12 @@
 import 'dart:convert';
 
 import 'package:bflutter_poc/home/home_bloc.dart';
-import 'package:bflutter_poc/model/user.dart';
+import 'package:bflutter_poc/model/user_detail.dart';
 import 'package:bflutter_poc/search/search_screen.dart';
 import 'package:flutter/material.dart';
 
+/// Home screen
+/// Auto get beesightsoft github user info
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
