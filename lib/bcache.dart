@@ -23,7 +23,7 @@ class Piece {
   }
 
   // Implement toString to make it easier to see information about
-  // each dog when using the print statement.
+  // each piece when using the print statement.
   @override
   String toString() {
     return 'Piece{id: $id, prefix: $prefix, body: $body}';
@@ -87,7 +87,7 @@ class BCache {
     final List<Map<String, dynamic>> results =
         await db.query(_tableName, where: "prefix = ?", whereArgs: [prefix]);
 
-    // Convert the List<Map<String, dynamic> into a List<Dog>.
+    // Convert the List<Map<String, dynamic> into a List<Piece>.
     return List.generate(results.length, (i) {
       return Piece(
         id: results[i]['id'],
@@ -95,6 +95,22 @@ class BCache {
         body: results[i]['body'],
       );
     });
+  }
+
+  // @nhancv 10/7/2019: Query data from database
+  Future<Piece> queryById(String id) async {
+    // Get a reference to the database.
+    final Database db = await database;
+
+    final List<Map<String, dynamic>> results =
+        await db.query(_tableName, where: "id = ?", whereArgs: [id]);
+
+    if(results.length == 0) return null;
+    return Piece(
+      id: results[0]['id'],
+      prefix: results[0]['prefix'],
+      body: results[0]['body'],
+    );
   }
 
   // @nhancv 10/7/2019: Update data

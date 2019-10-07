@@ -25,3 +25,7 @@
 ## [0.1.1+2] - Oct 07, 2019.
 
 * Update example
+
+## [0.1.2] - Oct 07, 2019.
+
+* Local caching available

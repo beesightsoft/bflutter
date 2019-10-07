@@ -50,13 +50,13 @@ class SearchBloc {
               }
             }).handleError((error) {}),
             // Get data from local storage
-            Observable.fromFuture(BCache().query("default")).map((data) {
+            Observable.fromFuture(BCache().queryById(input)).map((data) {
               print('From cache: $data');
-              if (data == null || data.length == 0) {
+              if (data == null) {
                 return NetCache(data: <User>[]);
               }
               List<User> result = json
-                  .decode(data[0].body)['items']
+                  .decode(data.body)['items']
                   .cast<Map<String, dynamic>>()
                   .map<User>((item) => User.fromJson(item))
                   .toList();

@@ -3,6 +3,8 @@ import 'package:bflutter_poc/global.dart';
 import 'package:bflutter_poc/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import 'search/search_screen.dart';
+
 void main() async {
   // @nhancv 10/7/2019: Config env
   Global().env = Env.dev();
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: true,
-      home: HomeScreen(),
+      home: SearchScreen(),
     );
   }
 }
