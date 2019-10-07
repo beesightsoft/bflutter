@@ -14,6 +14,7 @@ dependencies:
   sqflite: ^1.1.7
   path: ^1.6.4
   uuid: 2.0.1
+  cached_network_image: ^1.1.1
 
 dev_dependencies:
   flutter_test:

@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bflutter_poc/detail/detail_bloc.dart';
 import 'package:bflutter_poc/model/user.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 /// Detail screen
 /// Get user id from search screen
@@ -53,7 +54,7 @@ class DetailScreen extends StatelessWidget {
                         children: <Widget>[
                           CircleAvatar(
                             backgroundImage:
-                                NetworkImage(snapshot.data.avatarUrl),
+                            CachedNetworkImageProvider(snapshot.data.avatarUrl),
                             radius: 50.0,
                           ),
                           Text(json.encode(snapshot.data))

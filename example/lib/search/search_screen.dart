@@ -3,6 +3,7 @@ import 'package:bflutter_poc/model/net_cache.dart';
 import 'package:bflutter_poc/model/user.dart';
 import 'package:bflutter_poc/search/search_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 /// Search screen
 /// Get input from user
@@ -102,7 +103,7 @@ class ___SearchInfoState extends State<_SearchInfo> {
                         children: <Widget>[
                           CircleAvatar(
                             backgroundImage:
-                                NetworkImage(users[index].avatarUrl),
+                            CachedNetworkImageProvider(users[index].avatarUrl),
                             radius: 20.0,
                           ),
                           Padding(

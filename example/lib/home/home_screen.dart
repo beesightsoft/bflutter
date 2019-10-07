@@ -4,6 +4,8 @@ import 'package:bflutter_poc/home/home_bloc.dart';
 import 'package:bflutter_poc/model/user_detail.dart';
 import 'package:bflutter_poc/search/search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
 
 /// Home screen
 /// Auto get beesightsoft github user info
@@ -59,7 +61,7 @@ class __HomeInfoState extends State<_HomeInfo> {
                 return Column(
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundImage: NetworkImage(user.avatarUrl),
+                      backgroundImage: CachedNetworkImageProvider(user.avatarUrl),
                       radius: 50.0,
                     ),
                     Text(json.encode(snapshot.data))
