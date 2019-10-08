@@ -16,6 +16,9 @@ class Bloc<I, O> {
   /// @nhancv 2019-10-04: Push input data to BLoC
   void push(I input) => _inputSubject.sink.add(input);
 
+  /// @nhancv 10/8/2019: Get input stream
+  Stream<I> get input => _inputSubject;
+
   /// @nhancv 2019-10-04: Stream output from BLoC
   Stream<O> get stream => _outputSubject;
 

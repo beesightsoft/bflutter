@@ -29,3 +29,7 @@
 ## [0.1.2] - Oct 07, 2019.
 
 * Local caching available
+
+## [0.1.3] - Oct 07, 2019.
+
+* Get input stream, update example
