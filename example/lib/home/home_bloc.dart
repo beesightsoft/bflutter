@@ -10,10 +10,10 @@ class HomeBloc {
   final getUserInfo = Bloc<String, UserDetail>();
 
   HomeBloc() {
-    _initGetUserInfoLogic();
+    _initLogic();
   }
 
-  void _initGetUserInfoLogic() {
+  void _initLogic() {
     getUserInfo.logic =
         (Observable<String> input) => input.asyncMap(Api().getUserInfo).asyncMap(
               (data) {

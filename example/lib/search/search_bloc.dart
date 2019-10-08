@@ -13,10 +13,10 @@ class SearchBloc {
   final searchUser = Bloc<String, NetCache<List<User>>>();
 
   SearchBloc() {
-    _initSearchUserLogic();
+    _initLogic();
   }
 
-  void _initSearchUserLogic() {
+  void _initLogic() {
     searchUser.logic = (Observable<String> input) => input
             .distinct()
             .debounceTime(Duration(milliseconds: 500))

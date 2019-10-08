@@ -11,11 +11,11 @@ class DetailBloc {
   final getUserInfo = Bloc<String, UserDetail>();
 
   DetailBloc() {
-    _initGetUserInfoLogic();
+    _initLogic();
   }
 
   // @nhancv 10/7/2019: Init logic
-  void _initGetUserInfoLogic() {
+  void _initLogic() {
     getUserInfo.logic = (Observable<String> input) => input
         .map((input) {
           loading.push(true);
