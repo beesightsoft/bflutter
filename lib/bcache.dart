@@ -105,7 +105,7 @@ class BCache {
     final List<Map<String, dynamic>> results =
         await db.query(_tableName, where: "id = ?", whereArgs: [id]);
 
-    if(results.length == 0) return null;
+    if (results.length == 0) return null;
     return Piece(
       id: results[0]['id'],
       prefix: results[0]['prefix'],
