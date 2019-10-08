@@ -12,14 +12,14 @@ class Api {
   // @nhancv 10/7/2019: Get base url by env
   final String apiBaseUrl = Global().env.apiBaseUrl;
 
-  // @nhancv 10/7/2019: Search user request
+  /// @nhancv 10/7/2019: Search user request
   Future<http.Response> searchUsers(String query) {
     String url = '$apiBaseUrl/search/users?q=$query';
     print(url);
     return http.get(url);
   }
 
-  // @nhancv 10/7/2019: Get user info request
+  /// @nhancv 10/7/2019: Get user info request
   Future<http.Response> getUserInfo(String username) {
     String url = '$apiBaseUrl/users/$username';
     print(url);

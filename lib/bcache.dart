@@ -22,8 +22,8 @@ class Piece {
     return {'id': id, 'prefix': prefix, 'body': body};
   }
 
-  // Implement toString to make it easier to see information about
-  // each piece when using the print statement.
+  /// Implement toString to make it easier to see information about
+  /// each piece when using the print statement.
   @override
   String toString() {
     return 'Piece{id: $id, prefix: $prefix, body: $body}';
@@ -31,20 +31,20 @@ class Piece {
 }
 
 class BCache {
-  // @nhancv 10/7/2019: Create api instance
+  /// @nhancv 10/7/2019: Create api instance
   BCache._private();
 
   static final BCache _instance = BCache._private();
 
   factory BCache() => _instance;
 
-  // @nhancv 10/7/2019: Database instance
+  /// @nhancv 10/7/2019: Database instance
   Future<Database> database;
 
-  // @nhancv 10/7/2019: Table name
+  /// @nhancv 10/7/2019: Table name
   final _tableName = 'cache_data';
 
-  // @nhancv 10/7/2019: Init database connection
+  /// @nhancv 10/7/2019: Init database connection
   Future<void> init() async {
     database = openDatabase(
       // Set the path to the database. Note: Using the `join` function from the
@@ -64,7 +64,7 @@ class BCache {
     );
   }
 
-  // @nhancv 10/7/2019: Insert data to database
+  /// @nhancv 10/7/2019: Insert data to database
   Future<void> insert(Piece piece) async {
     // Get a reference to the database.
     final Database db = await database;
@@ -79,7 +79,7 @@ class BCache {
     );
   }
 
-  // @nhancv 10/7/2019: Query data from database
+  /// @nhancv 10/7/2019: Query data from database
   Future<List<Piece>> query(String prefix) async {
     // Get a reference to the database.
     final Database db = await database;
@@ -97,7 +97,7 @@ class BCache {
     });
   }
 
-  // @nhancv 10/7/2019: Query data from database
+  /// @nhancv 10/7/2019: Query data from database
   Future<Piece> queryById(String id) async {
     // Get a reference to the database.
     final Database db = await database;
@@ -113,7 +113,7 @@ class BCache {
     );
   }
 
-  // @nhancv 10/7/2019: Update data
+  /// @nhancv 10/7/2019: Update data
   Future<void> update(Piece piece) async {
     // Get a reference to the database.
     final db = await database;
@@ -127,7 +127,7 @@ class BCache {
     );
   }
 
-  // @nhancv 10/7/2019: Remove data by id
+  /// @nhancv 10/7/2019: Remove data by id
   Future<void> delete(String id) async {
     // Get a reference to the database.
     final db = await database;
@@ -140,7 +140,7 @@ class BCache {
     );
   }
 
-  // @nhancv 10/7/2019: Execute SQL query
+  /// @nhancv 10/7/2019: Execute SQL query
   Future<void> execute(String sql, [List<dynamic> arguments]) async {
     // Get a reference to the database.
     final db = await database;

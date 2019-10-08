@@ -73,7 +73,7 @@ class SearchBloc {
         });
   }
 
-  // @nhancv 10/7/2019: Dispose bloc
+  /// @nhancv 10/7/2019: Dispose bloc
   void dispose() {
     loading.dispose();
     searchUser.dispose();
