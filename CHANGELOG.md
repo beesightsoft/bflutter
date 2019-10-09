@@ -33,3 +33,8 @@
 ## [0.1.3] - Oct 07, 2019.
 
 * Get input stream, update example
+
+## [0.1.4] - Oct 07, 2019.
+
+* Change Piece property name
+* Proving more option for bcache

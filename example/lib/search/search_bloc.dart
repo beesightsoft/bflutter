@@ -50,7 +50,7 @@ class SearchBloc {
               }
             }).handleError((error) {}),
             // Get data from local storage
-            Observable.fromFuture(BCache().queryById(input)).map((data) {
+            Observable.fromFuture(BCache().queryId(input)).map((data) {
               print('From cache: $data');
               if (data == null) {
                 return NetCache(data: <User>[]);
