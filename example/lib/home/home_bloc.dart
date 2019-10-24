@@ -1,3 +1,9 @@
+/*
+ * Developed by Nhan Cao on 10/24/19 5:19 PM.
+ * Last modified 10/24/19 5:18 PM.
+ * Copyright (c) 2019 Beesight Soft. All rights reserved.
+ */
+
 import 'dart:convert';
 
 import 'package:bflutter/bflutter.dart';
@@ -14,16 +20,16 @@ class HomeBloc {
   }
 
   void _initLogic() {
-    getUserInfo.logic =
-        (Observable<String> input) => input.asyncMap(Api().getUserInfo).asyncMap(
+    getUserInfo.logic = (Observable<String> input) =>
+        input.asyncMap(Api().getUserInfo).asyncMap(
               (data) {
-                if (data.statusCode == 200) {
-                  return UserDetail.fromJson(json.decode(data.body));
-                } else {
-                  throw Exception(data.body);
-                }
-              },
-            );
+            if (data.statusCode == 200) {
+              return UserDetail.fromJson(json.decode(data.body));
+            } else {
+              throw Exception(data.body);
+            }
+          },
+        );
   }
 
   void getHomeInfo() {

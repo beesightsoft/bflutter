@@ -1,3 +1,9 @@
+/*
+ * Developed by Nhan Cao on 10/24/19 5:19 PM.
+ * Last modified 10/8/19 3:49 PM.
+ * Copyright (c) 2019 Beesight Soft. All rights reserved.
+ */
+
 import 'package:bflutter_poc/global.dart';
 import 'package:http/http.dart' as http;
 

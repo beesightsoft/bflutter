@@ -1,9 +1,15 @@
+/*
+ * Developed by Nhan Cao on 10/24/19 5:19 PM.
+ * Last modified 10/24/19 5:18 PM.
+ * Copyright (c) 2019 Beesight Soft. All rights reserved.
+ */
+
 import 'package:bflutter_poc/detail/detail_screen.dart';
 import 'package:bflutter_poc/model/net_cache.dart';
 import 'package:bflutter_poc/model/user.dart';
 import 'package:bflutter_poc/search/search_bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
 
 /// Search screen
 /// Get input from user
@@ -102,8 +108,8 @@ class ___SearchInfoState extends State<_SearchInfo> {
                       child: Row(
                         children: <Widget>[
                           CircleAvatar(
-                            backgroundImage:
-                            CachedNetworkImageProvider(users[index].avatarUrl),
+                            backgroundImage: CachedNetworkImageProvider(
+                                users[index].avatarUrl),
                             radius: 20.0,
                           ),
                           Padding(

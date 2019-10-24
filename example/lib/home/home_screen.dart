@@ -1,11 +1,16 @@
+/*
+ * Developed by Nhan Cao on 10/24/19 5:19 PM.
+ * Last modified 10/24/19 5:18 PM.
+ * Copyright (c) 2019 Beesight Soft. All rights reserved.
+ */
+
 import 'dart:convert';
 
 import 'package:bflutter_poc/home/home_bloc.dart';
 import 'package:bflutter_poc/model/user_detail.dart';
 import 'package:bflutter_poc/search/search_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-
+import 'package:flutter/material.dart';
 
 /// Home screen
 /// Auto get beesightsoft github user info
@@ -61,7 +66,8 @@ class __HomeInfoState extends State<_HomeInfo> {
                 return Column(
                   children: <Widget>[
                     CircleAvatar(
-                      backgroundImage: CachedNetworkImageProvider(user.avatarUrl),
+                      backgroundImage:
+                      CachedNetworkImageProvider(user.avatarUrl),
                       radius: 50.0,
                     ),
                     Text(json.encode(snapshot.data))

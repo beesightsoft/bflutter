@@ -1,3 +1,9 @@
+/*
+ * Developed by Nhan Cao on 10/24/19 5:19 PM.
+ * Last modified 10/7/19 3:06 PM.
+ * Copyright (c) 2019 Beesight Soft. All rights reserved.
+ */
+
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
