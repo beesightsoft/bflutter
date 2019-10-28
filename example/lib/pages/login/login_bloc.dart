@@ -5,6 +5,7 @@
  */
 
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:bflutter/bflutter.dart';
 import 'package:bflutter/provider/app_bloc.dart';
@@ -34,8 +35,8 @@ class LoginBloc with AppBloc {
   void initLogic() {
     // @nhancv 10/25/2019: Logic check not empty
     usernameInput.logic = (input) => input.map((d) {
-      return d.isNotEmpty;
-    });
+          return d.isNotEmpty;
+        });
     passwordInput.logic = (input) => input.map((d) => d.isNotEmpty);
 
     // @nhancv 10/25/2019: Combine logic to check total inputs are valid
@@ -58,9 +59,13 @@ class LoginBloc with AppBloc {
       if (form == null) return null;
       mainBloc.closeKeyboard();
       mainBloc.appLoading.push(true);
-      return authApi
-          .signIn()
-          .timeout(Duration(seconds: 30));
+
+      // @nhancv 2019-10-28: Random sign in api
+      if (Random().nextBool()) {
+        return authApi.signIn().timeout(Duration(seconds: 30));
+      } else {
+        return authApi.signInWithError().timeout(Duration(seconds: 30));
+      }
     }).asyncMap((data) async {
       if (data == null) return false;
       mainBloc.appLoading.push(false);
