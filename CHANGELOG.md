@@ -1,3 +1,8 @@
+## [0.1.5+3] - Oct 28, 2019.
+
+* Fix login bloc in example
+* Remove close keyboard on main_bloc, it break Observable
+
 ## [0.1.5+2] - Oct 28, 2019.
 
 * Fix import in example
