@@ -4,7 +4,6 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'package:bflutter/provider/main_bloc.dart';
 import 'package:bflutter/widgets/app_network.dart';
 import 'package:bflutter_poc/pages/login/login_bloc.dart';
 import 'package:bflutter_poc/widgets/bapp_bar.dart';
@@ -61,7 +60,7 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
         onTap: () {
-          FocusScope.of(context).unfocus();
+          closeKeyboard(context);
         },
       ),
     );
@@ -139,7 +138,7 @@ class LoginScreen extends StatelessWidget {
           ),
           obscureText: true,
           onSubmitted: (text) {
-            FocusScope.of(context).unfocus();
+            closeKeyboard(context);
             bloc.loginTrigger.push(true);
           },
         ),
@@ -174,9 +173,9 @@ class LoginScreen extends StatelessWidget {
                 ),
                 onPressed: (snapshot.hasData && snapshot.data)
                     ? () {
-                  FocusScope.of(context).unfocus();
-                  bloc.loginTrigger.push(true);
-                }
+                        closeKeyboard(context);
+                        bloc.loginTrigger.push(true);
+                      }
                     : null,
               );
             },
@@ -184,5 +183,10 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  // @nhancv 2019-10-28: Close keyboard
+  void closeKeyboard(context) {
+    FocusScope.of(context).unfocus();
   }
 }
