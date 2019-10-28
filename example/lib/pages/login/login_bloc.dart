@@ -33,7 +33,9 @@ class LoginBloc with AppBloc {
   @override
   void initLogic() {
     // @nhancv 10/25/2019: Logic check not empty
-    usernameInput.logic = (input) => input.map((d) => d.isNotEmpty);
+    usernameInput.logic = (input) => input.map((d) {
+      return d.isNotEmpty;
+    });
     passwordInput.logic = (input) => input.map((d) => d.isNotEmpty);
 
     // @nhancv 10/25/2019: Combine logic to check total inputs are valid

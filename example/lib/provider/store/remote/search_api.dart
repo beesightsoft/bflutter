@@ -15,7 +15,6 @@ class SearchApi extends Api {
   Future<http.Response> searchUsers(String query)  async {
     final header = await getHeader();
     String url = '$apiBaseUrl/search/users?q=$query';
-    print(url);
     return http.get(url, headers: header);
   }
 

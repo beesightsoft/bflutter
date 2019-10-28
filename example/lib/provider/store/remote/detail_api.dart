@@ -12,7 +12,6 @@ class DetailApi extends Api {
   Future<http.Response> getUserInfo(String username) async {
     final header = await getHeader();
     String url = '$apiBaseUrl/users/$username';
-    print(url);
     return http.get(url, headers: header);
   }
 }

@@ -5,6 +5,7 @@
  */
 
 import 'package:bflutter/bcache.dart';
+import 'package:bflutter_poc/pages/home/home_screen.dart';
 import 'package:bflutter_poc/pages/login/login_screen.dart';
 import 'package:bflutter_poc/widgets/app_loading.dart';
 import 'package:flutter/material.dart';

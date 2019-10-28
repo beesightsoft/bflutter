@@ -22,7 +22,10 @@ class Networking extends AppBloc {
   factory Networking() => _instance;
 
   @override
-  void initLogic() {
+  void initLogic() async {
+    // @nhancv 2019-10-28: Init network status
+    ConnectivityResult result = await (Connectivity().checkConnectivity());
+    networkStatus.push(_getStatusFromResult(result));
     // Subscribe to the connectivity stream
     Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
       networkStatus.push(_getStatusFromResult(result));
@@ -31,7 +34,7 @@ class Networking extends AppBloc {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    // ..
   }
 
   // Convert from the third part enum to our own enum

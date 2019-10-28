@@ -4,9 +4,9 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'package:bflutter_poc/pages/detail/detail_screen.dart';
 import 'package:bflutter_poc/models/remote/net_cache.dart';
 import 'package:bflutter_poc/models/remote/user.dart';
+import 'package:bflutter_poc/pages/detail/detail_screen.dart';
 import 'package:bflutter_poc/pages/search/search_bloc.dart';
 import 'package:bflutter_poc/widgets/bapp_bar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -113,10 +113,14 @@ class ___SearchInfoState extends State<_SearchInfo> {
                                 users[index].avatarUrl),
                             radius: 20.0,
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(left: 10, right: 10),
-                            child: Text(
-                                '${users[index].login} (FromNet: ${netCacheData.fromNet})'),
+                          Flexible(
+                            child: Container(
+                              padding: EdgeInsets.only(left: 10, right: 10),
+                              child: Text(
+                                '${users[index].login} (FromNet: ${netCacheData.fromNet})',
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
                           ),
                         ],
                       ),
