@@ -3,7 +3,7 @@
  * Last modified 10/28/19 8:35 AM.
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
-
+import 'package:flutter/services.dart' show SystemChannels;
 import 'package:bflutter/bflutter.dart';
 import 'package:bflutter/provider/app_bloc.dart';
 import 'package:bflutter/widgets/app_popup.dart';
@@ -46,12 +46,6 @@ class MainBloc extends AppBloc {
     if (_context == null) return;
     Navigator.pushReplacement(
         _context, CupertinoPageRoute(builder: (context) => screen));
-  }
-
-  /// @nhancv 10/28/2019: Close keyboard
-  void closeKeyboard() {
-    if (_context == null) return;
-    FocusScope.of(_context).requestFocus(FocusNode());
   }
 
   /// @nhancv 2019-10-26: Dismiss dialog

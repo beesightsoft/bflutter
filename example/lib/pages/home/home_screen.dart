@@ -49,7 +49,7 @@ class __HomeInfoState extends State<_HomeInfo> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
+      child: Container(
         padding: EdgeInsets.only(top: 10),
         child: Column(
           children: <Widget>[

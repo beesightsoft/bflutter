@@ -57,7 +57,7 @@ class LoginBloc with AppBloc {
                 ? LogInRequest(username, password)
                 : null).asyncMap((form) async {
       if (form == null) return null;
-      mainBloc.closeKeyboard();
+
       mainBloc.appLoading.push(true);
 
       // @nhancv 2019-10-28: Random sign in api

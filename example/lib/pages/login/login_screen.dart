@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                       buildTextLabel("Please enter username"),
                       buildUserNameField(context),
                       buildTextLabel("Please enter password"),
-                      buildPasswordField(),
+                      buildPasswordField(context),
                       buildLoginButton(context),
                     ],
                   ),
@@ -61,7 +61,7 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
         onTap: () {
-          MainBloc().closeKeyboard();
+          FocusScope.of(context).unfocus();
         },
       ),
     );
@@ -116,7 +116,7 @@ class LoginScreen extends StatelessWidget {
   }
 
   /// @hieu.nguyen 10/24/2019: build block password.
-  Widget buildPasswordField() {
+  Widget buildPasswordField(context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(24, 0, 16.0, 32),
       child: Container(
@@ -139,6 +139,7 @@ class LoginScreen extends StatelessWidget {
           ),
           obscureText: true,
           onSubmitted: (text) {
+            FocusScope.of(context).unfocus();
             bloc.loginTrigger.push(true);
           },
         ),
@@ -173,8 +174,9 @@ class LoginScreen extends StatelessWidget {
                 ),
                 onPressed: (snapshot.hasData && snapshot.data)
                     ? () {
-                        bloc.loginTrigger.push(true);
-                      }
+                  FocusScope.of(context).unfocus();
+                  bloc.loginTrigger.push(true);
+                }
                     : null,
               );
             },
