@@ -7,12 +7,12 @@
 import 'dart:convert';
 
 import 'package:bflutter/bflutter.dart';
-import 'package:bflutter_poc/main_bloc.dart';
+import 'package:bflutter/provider/app_bloc.dart';
+import 'package:bflutter/provider/main_bloc.dart';
+import 'package:bflutter/provider/networking.dart';
 import 'package:bflutter_poc/models/remote/log_in_request.dart';
 import 'package:bflutter_poc/models/remote/log_in_response.dart';
 import 'package:bflutter_poc/pages/home/home_screen.dart';
-import 'package:bflutter_poc/provider/app_bloc.dart';
-import 'package:bflutter_poc/provider/networking.dart';
 import 'package:bflutter_poc/provider/store/remote/auth_api.dart';
 import 'package:bflutter_poc/utils/constants.dart';
 import 'package:rxdart/rxdart.dart';

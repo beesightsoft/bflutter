@@ -4,13 +4,11 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'package:bflutter/bcache.dart';
-import 'package:bflutter_poc/pages/home/home_screen.dart';
+import 'package:bflutter/libs/bcache.dart';
+import 'package:bflutter/provider/main_bloc.dart';
+import 'package:bflutter/widgets/app_loading.dart';
 import 'package:bflutter_poc/pages/login/login_screen.dart';
-import 'package:bflutter_poc/widgets/app_loading.dart';
 import 'package:flutter/material.dart';
-
-import 'main_bloc.dart';
 
 void main() async {
   // @nhancv 2019-10-24: Start services later

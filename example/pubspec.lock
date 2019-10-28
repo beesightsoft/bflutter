@@ -135,7 +135,7 @@ packages:
     source: hosted
     version: "1.14.11"
   connectivity:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: connectivity
       url: "https://pub.dartlang.org"
@@ -203,7 +203,7 @@ packages:
     source: hosted
     version: "0.7.3"
   flutter_spinkit:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flutter_spinkit
       url: "https://pub.dartlang.org"
@@ -243,7 +243,7 @@ packages:
     source: hosted
     version: "0.14.0+3"
   http:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: http
       url: "https://pub.dartlang.org"

@@ -4,10 +4,10 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'package:bflutter_poc/main_bloc.dart';
+import 'package:bflutter/provider/main_bloc.dart';
+import 'package:bflutter/widgets/app_network.dart';
+import 'file:///Volumes/Data/Projects/bss/bflutter/example/lib/widgets/bapp_bar.dart';
 import 'package:bflutter_poc/pages/login/login_bloc.dart';
-import 'package:bflutter_poc/widgets/app_network.dart';
-import 'package:bflutter_poc/widgets/bapp_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

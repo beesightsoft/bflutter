@@ -5,8 +5,8 @@
  */
 
 import 'package:bflutter/bflutter.dart';
+import 'package:bflutter/provider/app_bloc.dart';
 import 'package:connectivity/connectivity.dart';
-import 'package:bflutter_poc/provider/app_bloc.dart';
 
 enum ConnectivityStatus { WiFi, Cellular, Offline }
 

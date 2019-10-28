@@ -4,7 +4,7 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'package:bflutter_poc/provider/networking.dart';
+import 'package:bflutter/provider/networking.dart';
 import 'package:flutter/material.dart';
 
 class AppNetwork extends StatelessWidget {

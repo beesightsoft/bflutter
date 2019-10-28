@@ -1,5 +1,5 @@
 library bflutter;
 
 /// Export libs
-export 'bloc.dart';
-export 'bcache.dart';
+export 'libs/bloc.dart';
+export 'libs/bcache.dart';

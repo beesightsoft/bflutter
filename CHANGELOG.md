@@ -38,3 +38,8 @@
 
 * Change Piece property name
 * Proving more option for bcache
+
+## [0.1.5] - Oct 07, 2019.
+
+* Add network, loading, popup widget
+* Update example project

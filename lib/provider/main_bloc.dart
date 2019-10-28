@@ -5,8 +5,8 @@
  */
 
 import 'package:bflutter/bflutter.dart';
-import 'package:bflutter_poc/provider/app_bloc.dart';
-import 'package:bflutter_poc/widgets/app_popup.dart';
+import 'package:bflutter/provider/app_bloc.dart';
+import 'package:bflutter/widgets/app_popup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -44,7 +44,8 @@ class MainBloc extends AppBloc {
   /// @nhancv 2019-10-26: Cupertino Page Route push replacement
   void navigateReplace(Widget screen) {
     if (_context == null) return;
-    Navigator.pushReplacement(_context, CupertinoPageRoute(builder: (context) => screen));
+    Navigator.pushReplacement(
+        _context, CupertinoPageRoute(builder: (context) => screen));
   }
 
   /// @nhancv 10/28/2019: Close keyboard
@@ -52,6 +53,7 @@ class MainBloc extends AppBloc {
     if (_context == null) return;
     FocusScope.of(_context).requestFocus(FocusNode());
   }
+
   /// @nhancv 2019-10-26: Dismiss dialog
   void dismissDialog() {
     if (_context == null) return;

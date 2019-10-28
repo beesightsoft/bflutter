@@ -4,7 +4,7 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'package:bflutter/bcache.dart';
+import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter_poc/provider/global.dart';
 import 'package:bflutter_poc/utils/constants.dart';
 
