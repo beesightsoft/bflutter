@@ -8,6 +8,7 @@ import 'dart:convert';
 
 import 'package:bflutter_poc/models/remote/user.dart';
 import 'package:bflutter_poc/pages/detail/detail_bloc.dart';
+import 'package:bflutter_poc/widgets/bapp_bar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +29,7 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Detail Screen')),
+      appBar: BAppBar(text: "Detail Screen"),
       body: userBase?.login?.isEmpty == null
           ? Container(child: Text('user empty'))
           : Column(
