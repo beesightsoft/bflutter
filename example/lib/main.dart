@@ -5,31 +5,68 @@
  */
 
 import 'package:bflutter/bcache.dart';
-import 'package:bflutter_poc/global.dart';
-import 'package:bflutter_poc/home/home_screen.dart';
+import 'package:bflutter_poc/pages/login/login_screen.dart';
+import 'package:bflutter_poc/widgets/app_loading.dart';
 import 'package:flutter/material.dart';
 
-import 'search/search_screen.dart';
+import 'main_bloc.dart';
 
 void main() async {
-  // @nhancv 10/7/2019: Config env
-  Global().env = Env.dev();
-  // @nhancv 10/7/2019: Init bcaching
+  // @nhancv 2019-10-24: Start services later
+  WidgetsFlutterBinding.ensureInitialized();
+  // @nhancv 10/23/2019: Init bflutter caching
   await BCache().init();
-  // @nhancv 10/7/2019: Run app
+  // @nhancv 10/23/2019: Run Application
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    /**
+     * App flow:
+     * - First, login
+     * - Second, navigate to Home with auto fetch beesightsoft github info
+     * - Then, navigate Search screen
+     * - Last, navigate to Detail screen
+     */
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      debugShowCheckedModeBanner: true,
-      home: SearchScreen(),
+      home: AppContent(),
     );
+  }
+}
+
+class AppContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    WidgetsBinding.instance.addPostFrameCallback((_) => onAfterBuild(context));
+
+    return Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Stack(
+        children: <Widget>[
+          LoginScreen(),
+          StreamBuilder(
+            stream: MainBloc().appLoading.stream,
+            builder: (context, snapshot) =>
+                snapshot.hasData && snapshot.data ? AppLoading() : SizedBox(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // @nhancv 10/25/2019: After widget initialized.
+  void onAfterBuild(BuildContext context) {
+    MainBloc().initContext(context);
   }
 }

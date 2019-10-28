@@ -23,6 +23,11 @@ dependencies:
      main.dart                                       
          |                                           
  +-------|------+                                    
+ |     login     |                                    
+ +--------------+                                    
+ - Login with fake api                                    
+         |                                           
+ +-------|------+                                    
  |     home     |                                    
  +--------------+                                    
  - Show repo info                                    
@@ -42,4 +47,11 @@ dependencies:
  +--------------+                                    
  - Show detail of github user                        
 
+```
+
+## Update app icon
+
+```
+flutter pub get
+flutter pub run flutter_launcher_icons:main
 ```

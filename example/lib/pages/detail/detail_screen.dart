@@ -6,8 +6,8 @@
 
 import 'dart:convert';
 
-import 'package:bflutter_poc/detail/detail_bloc.dart';
-import 'package:bflutter_poc/model/user.dart';
+import 'package:bflutter_poc/pages/detail/detail_bloc.dart';
+import 'package:bflutter_poc/models/remote/user.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 

@@ -7,14 +7,16 @@
 import 'dart:convert';
 
 import 'package:bflutter/bflutter.dart';
-import 'package:bflutter_poc/api.dart';
-import 'package:bflutter_poc/model/user_detail.dart';
+import 'package:bflutter_poc/models/remote/user_detail.dart';
+import 'package:bflutter_poc/provider/store/remote/detail_api.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Implement logic for Detail screen
 class DetailBloc {
   final loading = BlocDefault<bool>();
   final getUserInfo = Bloc<String, UserDetail>();
+
+  final detailApi = DetailApi();
 
   DetailBloc() {
     _initLogic();
@@ -24,26 +26,26 @@ class DetailBloc {
   void _initLogic() {
     getUserInfo.logic = (Observable<String> input) => input
         .map((input) {
-      loading.push(true);
-      return input;
-    })
-        .asyncMap(Api().getUserInfo)
+          loading.push(true);
+          return input;
+        })
+        .asyncMap(detailApi.getUserInfo)
         .asyncMap(
           (data) {
-        if (data.statusCode == 200) {
-          return UserDetail.fromJson(json.decode(data.body));
-        } else {
-          throw Exception(data.body);
-        }
-      },
-    )
+            if (data.statusCode == 200) {
+              return UserDetail.fromJson(json.decode(data.body));
+            } else {
+              throw Exception(data.body);
+            }
+          },
+        )
         .handleError((error) {
-      loading.push(false);
-      throw error;
-    })
+          loading.push(false);
+          throw error;
+        })
         .doOnData((data) {
-      loading.push(false);
-    });
+          loading.push(false);
+        });
   }
 
   void dispose() {

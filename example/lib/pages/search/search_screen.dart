@@ -4,10 +4,11 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'package:bflutter_poc/detail/detail_screen.dart';
-import 'package:bflutter_poc/model/net_cache.dart';
-import 'package:bflutter_poc/model/user.dart';
-import 'package:bflutter_poc/search/search_bloc.dart';
+import 'package:bflutter_poc/pages/detail/detail_screen.dart';
+import 'package:bflutter_poc/models/remote/net_cache.dart';
+import 'package:bflutter_poc/models/remote/user.dart';
+import 'package:bflutter_poc/pages/search/search_bloc.dart';
+import 'package:bflutter_poc/widgets/bapp_bar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Search Screen')),
+      appBar: BAppBar(text: "Search screen"),
       body: _SearchInfo(),
     );
   }

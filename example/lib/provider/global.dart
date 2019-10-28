@@ -1,6 +1,6 @@
 /*
- * Developed by Nhan Cao on 10/24/19 5:19 PM.
- * Last modified 10/7/19 3:06 PM.
+ * Developed by Nhan Cao on 10/28/19 11:07 AM.
+ * Last modified 10/28/19 8:35 AM.
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
@@ -14,7 +14,7 @@ class Env {
   final String apiBaseUrl;
 
   factory Env.dev() {
-    return new Env._(apiBaseUrl: "https://api.github.com");
+    return Env._(apiBaseUrl: "https://api.github.com");
   }
 }
 

@@ -6,19 +6,21 @@
 
 import 'dart:convert';
 
-import 'package:bflutter_poc/home/home_bloc.dart';
-import 'package:bflutter_poc/model/user_detail.dart';
-import 'package:bflutter_poc/search/search_screen.dart';
+import 'package:bflutter_poc/pages/home/home_bloc.dart';
+import 'package:bflutter_poc/models/remote/user_detail.dart';
+import 'package:bflutter_poc/pages/search/search_screen.dart';
+import 'package:bflutter_poc/widgets/bapp_bar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 /// Home screen
 /// Auto get beesightsoft github user info
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home Screen')),
+      appBar: BAppBar(text: "Home screen"),
       body: _HomeInfo(),
     );
   }
