@@ -6,12 +6,13 @@
 
 import 'dart:convert';
 
-import 'file:///Volumes/Data/Projects/bss/bflutter/example/lib/widgets/bapp_bar.dart';
-import 'package:bflutter_poc/pages/home/home_bloc.dart';
 import 'package:bflutter_poc/models/remote/user_detail.dart';
+import 'package:bflutter_poc/pages/home/home_bloc.dart';
 import 'package:bflutter_poc/pages/search/search_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import 'file:///Volumes/Data/Projects/bss/bflutter/example/lib/widgets/bapp_bar.dart';
 
 /// Home screen
 /// Auto get beesightsoft github user info
@@ -69,7 +70,7 @@ class __HomeInfoState extends State<_HomeInfo> {
                   children: <Widget>[
                     CircleAvatar(
                       backgroundImage:
-                      CachedNetworkImageProvider(user.avatarUrl),
+                          CachedNetworkImageProvider(user.avatarUrl),
                       radius: 50.0,
                     ),
                     Text(json.encode(snapshot.data))

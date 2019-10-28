@@ -19,9 +19,9 @@ class UserDetail {
   }
 
   Map<String, dynamic> toJson() => {
-    'login': login,
-    'avatarUrl': avatarUrl,
-    'name': name,
-    'location': location
-  };
+        'login': login,
+        'avatarUrl': avatarUrl,
+        'name': name,
+        'location': location
+      };
 }

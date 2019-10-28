@@ -43,3 +43,7 @@
 
 * Add network, loading, popup widget
 * Update example project
+
+## [0.1.5+1] - Oct 07, 2019.
+
+* Update dependencies

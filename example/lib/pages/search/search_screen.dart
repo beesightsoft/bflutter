@@ -4,13 +4,14 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'file:///Volumes/Data/Projects/bss/bflutter/example/lib/widgets/bapp_bar.dart';
 import 'package:bflutter_poc/models/remote/net_cache.dart';
 import 'package:bflutter_poc/models/remote/user.dart';
 import 'package:bflutter_poc/pages/detail/detail_screen.dart';
 import 'package:bflutter_poc/pages/search/search_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import 'file:///Volumes/Data/Projects/bss/bflutter/example/lib/widgets/bapp_bar.dart';
 
 /// Search screen
 /// Get input from user

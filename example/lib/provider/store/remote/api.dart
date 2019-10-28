@@ -8,7 +8,6 @@ import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter_poc/provider/global.dart';
 import 'package:bflutter_poc/utils/constants.dart';
 
-
 class Api {
   // @nhancv 10/7/2019: Get base url by env
   final String apiBaseUrl = Global().env.apiBaseUrl;

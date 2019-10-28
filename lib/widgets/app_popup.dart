@@ -48,7 +48,6 @@ class AppConfirmDialog extends StatelessWidget {
     return CupertinoAlertDialog(
         title: Text(title),
         content: Text(message),
-
         actions: <Widget>[
           FlatButton(
               onPressed: () {

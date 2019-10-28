@@ -6,8 +6,8 @@
 
 import 'dart:convert';
 
-import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter/bflutter.dart';
+import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter_poc/models/remote/net_cache.dart';
 import 'package:bflutter_poc/models/remote/user.dart';
 import 'package:bflutter_poc/provider/store/remote/search_api.dart';

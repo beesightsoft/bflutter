@@ -6,8 +6,8 @@
 
 import 'dart:convert';
 
-import 'package:bflutter_poc/pages/detail/detail_bloc.dart';
 import 'package:bflutter_poc/models/remote/user.dart';
+import 'package:bflutter_poc/pages/detail/detail_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -32,45 +32,45 @@ class DetailScreen extends StatelessWidget {
       body: userBase?.login?.isEmpty == null
           ? Container(child: Text('user empty'))
           : Column(
-        children: <Widget>[
-          Container(
-            child: StreamBuilder(
-              stream: bloc.loading.stream,
-              builder: (context, loading) {
-                if (loading.hasData && loading.data) {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-                return Container();
-              },
+              children: <Widget>[
+                Container(
+                  child: StreamBuilder(
+                    stream: bloc.loading.stream,
+                    builder: (context, loading) {
+                      if (loading.hasData && loading.data) {
+                        return Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return Container();
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: StreamBuilder(
+                    stream: bloc.getUserInfo.stream,
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return Text(snapshot.error.toString());
+                      }
+                      if (!snapshot.hasData) {
+                        return Container();
+                      }
+                      return Column(
+                        children: <Widget>[
+                          CircleAvatar(
+                            backgroundImage: CachedNetworkImageProvider(
+                                snapshot.data.avatarUrl),
+                            radius: 50.0,
+                          ),
+                          Text(json.encode(snapshot.data))
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
-          ),
-          Expanded(
-            child: StreamBuilder(
-              stream: bloc.getUserInfo.stream,
-              builder: (context, snapshot) {
-                if (snapshot.hasError) {
-                  return Text(snapshot.error.toString());
-                }
-                if (!snapshot.hasData) {
-                  return Container();
-                }
-                return Column(
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundImage: CachedNetworkImageProvider(
-                          snapshot.data.avatarUrl),
-                      radius: 50.0,
-                    ),
-                    Text(json.encode(snapshot.data))
-                  ],
-                );
-              },
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
