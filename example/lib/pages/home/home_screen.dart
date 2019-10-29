@@ -50,7 +50,6 @@ class __HomeInfoState extends State<_HomeInfo> {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        padding: EdgeInsets.only(top: 10),
         child: Column(
           children: <Widget>[
             StreamBuilder(
