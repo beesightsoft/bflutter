@@ -1,3 +1,7 @@
+## [0.1.6] - Oct 30, 2019.
+
+* Add logging
+
 ## [0.1.5+3] - Oct 28, 2019.
 
 * Fix login bloc in example
