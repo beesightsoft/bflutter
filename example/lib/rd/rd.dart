@@ -61,11 +61,61 @@ class _WgFullState1State extends State<WgFullState> {
   Widget build(BuildContext context) {
     print('build WgFullState');
     return Container(
+        child: Column(
+          children: <Widget>[
+            RaisedButton(
+              child: Text('WgFullState'),
+              onPressed: () {
+                setState(() {
+                  print('setState WgFullState');
+                });
+              },
+            ),
+            Container(
+              child: RaisedButton(
+                child: Text('WgFullState Btn2'),
+                onPressed: () {
+                  setState(() {
+                    print('setState WgFullState Btn2');
+                  });
+                },
+              ),
+            ),
+            SubWgStateless(),
+            SubWgFullState(),
+          ],
+        )
+    );
+  }
+}
+
+class SubWgFullState extends StatefulWidget {
+  @override
+  _SubWgFullStateState createState() => _SubWgFullStateState();
+}
+
+class _SubWgFullStateState extends State<SubWgFullState> {
+  @override
+  void initState() {
+    print('initState SubWgFullState');
+    super.initState();
+  }
+
+  @override
+  void didUpdateWidget(SubWgFullState oldWidget) {
+    print('didUpdateWidget SubWgFullState');
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    print('build SubWgFullState');
+    return Container(
       child: RaisedButton(
-        child: Text('WgFullState'),
+        child: Text('SubWgFullState'),
         onPressed: () {
           setState(() {
-            print('setState WgFullState');
+            print('setState SubWgFullState');
           });
         },
       ),
@@ -78,10 +128,16 @@ class WgStateless extends StatelessWidget {
   Widget build(BuildContext context) {
     print('build WgStateless');
     return Container(
-      child: RaisedButton(
-        child: Text('WgStateless'),
-        onPressed: () {},
-      ),
+      child: WgFullState(),
     );
   }
 }
+
+class SubWgStateless extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('build SubWgStateless');
+    return Container();
+  }
+}
+
