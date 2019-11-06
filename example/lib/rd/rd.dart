@@ -62,6 +62,7 @@ class _WgFullState1State extends State<WgFullState> {
     print('build WgFullState');
     return Container(
       child: RaisedButton(
+        child: Text('WgFullState'),
         onPressed: () {
           setState(() {
             print('setState WgFullState');
@@ -75,9 +76,10 @@ class _WgFullState1State extends State<WgFullState> {
 class WgStateless extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print('build wgstateless');
+    print('build WgStateless');
     return Container(
       child: RaisedButton(
+        child: Text('WgStateless'),
         onPressed: () {},
       ),
     );
