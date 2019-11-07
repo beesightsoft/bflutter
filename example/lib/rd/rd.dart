@@ -11,10 +11,26 @@ class RDApp extends StatefulWidget {
   _RDAppState createState() => _RDAppState();
 }
 
+/// App
 /// WgFullState
-///  + Wg1Statless
-///  + Wg1FullState
-/// WgStatless
+///   + Button
+///   + Container
+///     + Button
+///   + SubWgStateless
+///     + Container
+///   + SubWgFullState
+///     + Button
+///     + SubWgStateless
+/// WgStateless
+///   + WgFullState
+///     + Button
+///     + Container
+///       + Button
+///     + SubWgStateless
+///       + Container
+///     + SubWgFullState
+///       + Button
+///       + SubWgStateless
 class _RDAppState extends State<RDApp> {
   @override
   Widget build(BuildContext context) {
@@ -111,14 +127,19 @@ class _SubWgFullStateState extends State<SubWgFullState> {
   Widget build(BuildContext context) {
     print('build SubWgFullState');
     return Container(
-      child: RaisedButton(
-        child: Text('SubWgFullState'),
-        onPressed: () {
-          setState(() {
-            print('setState SubWgFullState');
-          });
-        },
-      ),
+        child: Column(
+          children: <Widget>[
+            RaisedButton(
+              child: Text('SubWgFullState'),
+              onPressed: () {
+                setState(() {
+                  print('setState SubWgFullState');
+                });
+              },
+            ),
+            SubWgStateless()
+          ],
+        )
     );
   }
 }
