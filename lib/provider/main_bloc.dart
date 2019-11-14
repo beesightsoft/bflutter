@@ -3,7 +3,6 @@
  * Last modified 10/28/19 8:35 AM.
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
-import 'package:flutter/services.dart' show SystemChannels;
 import 'package:bflutter/bflutter.dart';
 import 'package:bflutter/provider/app_bloc.dart';
 import 'package:bflutter/widgets/app_popup.dart';
@@ -23,8 +22,31 @@ class MainBloc extends AppBloc {
   BuildContext _context;
 
   // @nhancv 10/25/2019: Init context, need call this function after root widget initialized.
+  //class AppContent extends StatelessWidget {
+  //  @override
+  //  Widget build(BuildContext context) {
+  //    WidgetsBinding.instance.addPostFrameCallback((_) => onAfterBuild(context));
+  //
+  //    return Scaffold(
+  //      backgroundColor: Colors.transparent,
+  //      body: Container(),
+  //    );
+  //  }
+  //
+  //  // @nhancv 10/25/2019: After widget initialized.
+  //  void onAfterBuild(BuildContext context) {
+  //    MainBloc().initContext(context);
+  //  }
+  //}
   void initContext(BuildContext context) {
     _context = context;
+  }
+
+  BuildContext getContext() {
+    if (_context == null)
+      throw Exception(
+          'You need to init context after root widget initialized.');
+    return _context;
   }
 
   @override
@@ -61,6 +83,16 @@ class MainBloc extends AppBloc {
       context: _context,
       barrierDismissible: false,
       builder: (context) => AppAlertDialog(message: message),
+    );
+  }
+
+  // @nhancv 11/14/2019: Show dialog with full customization
+  void showAppDialog(WidgetBuilder builder, {bool barrierDismissible = false}) {
+    if (_context == null) return;
+    showDialog(
+      context: _context,
+      barrierDismissible: barrierDismissible,
+      builder: builder,
     );
   }
 }

@@ -1,3 +1,8 @@
+## [0.1.7] - Oct 30, 2019.
+
+* Get context from main_bloc
+* Show dialog with full builder customization
+
 ## [0.1.6] - Oct 30, 2019.
 
 * Add logging
