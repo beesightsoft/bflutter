@@ -1,3 +1,7 @@
+## [0.1.8+2] - Dec 05, 2019.
+
+* Remove unused
+
 ## [0.1.8+1] - Dec 05, 2019.
 
 * Update readme
