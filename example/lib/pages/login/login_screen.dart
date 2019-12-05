@@ -4,6 +4,8 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
+import 'package:bflutter/bflutter.dart';
+import 'package:bflutter/provider/base_localizations.dart';
 import 'package:bflutter/widgets/app_network.dart';
 import 'package:bflutter_poc/pages/login/login_bloc.dart';
 import 'package:bflutter_poc/widgets/bapp_bar.dart';
@@ -11,6 +13,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
+  final mainBloc = MainBloc.instance;
   final bloc = LoginBloc();
   final FocusNode _focusPasswordSignIn = FocusNode();
 
@@ -18,7 +21,9 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[50],
-      appBar: BAppBar(),
+      appBar: BAppBar(
+        text: DefaultLocalizations.of(context).translate('title'),
+      ),
       body: GestureDetector(
         child: Stack(
           children: <Widget>[
@@ -52,11 +57,23 @@ class LoginScreen extends StatelessWidget {
                       buildTextLabel("Please enter password"),
                       buildPasswordField(context),
                       buildLoginButton(context),
+                      FlatButton(
+                        child: Text('lang'),
+                        onPressed: () {
+                          final currentLocale =
+                              DefaultLocalizations.of(context).locale;
+                          if (currentLocale == Locale('en')) {
+                            mainBloc.localeBloc.push(Locale('vi'));
+                          } else {
+                            mainBloc.localeBloc.push(Locale('en'));
+                          }
+                        },
+                      )
                     ],
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
         onTap: () {

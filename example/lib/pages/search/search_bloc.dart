@@ -49,7 +49,7 @@ class SearchBloc {
                     .map<User>((item) => User.fromJson(item))
                     .toList();
                 // @nhancv 10/7/2019: Storage data from network to local
-                await BCache().insert(Piece(id: input, body: data.body));
+                await BCache.instance.insert(Piece(id: input, body: data.body));
 
                 // @nhancv 10/7/2019: Return latest data from network
                 return NetCache(fromNet: true, data: result);
@@ -58,7 +58,7 @@ class SearchBloc {
               }
             }).handleError((error) {}),
             // Get data from local storage
-            Observable.fromFuture(BCache().queryId(input)).map((data) {
+            Observable.fromFuture(BCache.instance.queryId(input)).map((data) {
               print('From cache: $data');
               if (data == null) {
                 return NetCache(data: <User>[]);

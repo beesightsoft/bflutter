@@ -34,9 +34,7 @@ class BCache {
   /// @nhancv 10/7/2019: Create api instance
   BCache._private();
 
-  static final BCache _instance = BCache._private();
-
-  factory BCache() => _instance;
+  static final BCache instance = BCache._private();
 
   /// @nhancv 10/7/2019: Database instance
   Future<Database> database;
@@ -190,7 +188,7 @@ class BCache {
 }
 
 /// Example
-//BCache bCache = BCache();
+//BCache bCache = BCache.instance;
 //await bCache.init();
 //
 //// Piece instance

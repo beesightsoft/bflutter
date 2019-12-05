@@ -1,3 +1,8 @@
+## [0.1.8] - Dec 05, 2019.
+
+* Add i18n approach
+* Remove http, cached_network_image out of core
+
 ## [0.1.7] - Oct 30, 2019.
 
 * Get context from main_bloc

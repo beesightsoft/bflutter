@@ -13,12 +13,11 @@ class MainBloc extends AppBloc {
   MainBloc._private() {
     initLogic();
   }
-
-  static final MainBloc _instance = MainBloc._private();
-
-  factory MainBloc() => _instance;
+  static final instance = MainBloc._private();
 
   final appLoading = BlocDefault<bool>();
+  final localeBloc = BlocDefault<Locale>();
+
   BuildContext _context;
 
   // @nhancv 10/25/2019: Init context, need call this function after root widget initialized.

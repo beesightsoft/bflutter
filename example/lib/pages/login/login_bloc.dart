@@ -25,7 +25,7 @@ class LoginBloc with AppBloc {
   final loginTrigger = BlocDefault<bool>();
 
   final authApi = AuthApi();
-  final mainBloc = MainBloc();
+  final mainBloc = MainBloc.instance;
 
   LoginBloc() {
     initLogic();
@@ -76,7 +76,7 @@ class LoginBloc with AppBloc {
           if (loginResponse.accessToken != null &&
               loginResponse.accessToken.isNotEmpty) {
             // @nhancv 10/25/2019: Store key
-            await BCache().insert(Piece(
+            await BCache.instance.insert(Piece(
                 id: Constants.bCacheAuthKey, body: loginResponse.accessToken));
             // @nhancv 2019-10-26: Navigate to seat map screen
             mainBloc.navigateReplace(HomeScreen());

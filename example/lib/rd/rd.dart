@@ -78,30 +78,29 @@ class _WgFullState1State extends State<WgFullState> {
     print('build WgFullState');
     return Container(
         child: Column(
-          children: <Widget>[
-            RaisedButton(
-              child: Text('WgFullState'),
-              onPressed: () {
-                setState(() {
-                  print('setState WgFullState');
-                });
-              },
-            ),
-            Container(
-              child: RaisedButton(
-                child: Text('WgFullState Btn2'),
-                onPressed: () {
-                  setState(() {
-                    print('setState WgFullState Btn2');
-                  });
-                },
-              ),
-            ),
-            SubWgStateless(),
-            SubWgFullState(),
-          ],
-        )
-    );
+      children: <Widget>[
+        RaisedButton(
+          child: Text('WgFullState'),
+          onPressed: () {
+            setState(() {
+              print('setState WgFullState');
+            });
+          },
+        ),
+        Container(
+          child: RaisedButton(
+            child: Text('WgFullState Btn2'),
+            onPressed: () {
+              setState(() {
+                print('setState WgFullState Btn2');
+              });
+            },
+          ),
+        ),
+        SubWgStateless(),
+        SubWgFullState(),
+      ],
+    ));
   }
 }
 
@@ -128,19 +127,18 @@ class _SubWgFullStateState extends State<SubWgFullState> {
     print('build SubWgFullState');
     return Container(
         child: Column(
-          children: <Widget>[
-            RaisedButton(
-              child: Text('SubWgFullState'),
-              onPressed: () {
-                setState(() {
-                  print('setState SubWgFullState');
-                });
-              },
-            ),
-            SubWgStateless()
-          ],
-        )
-    );
+      children: <Widget>[
+        RaisedButton(
+          child: Text('SubWgFullState'),
+          onPressed: () {
+            setState(() {
+              print('setState SubWgFullState');
+            });
+          },
+        ),
+        SubWgStateless()
+      ],
+    ));
   }
 }
 
@@ -161,4 +159,3 @@ class SubWgStateless extends StatelessWidget {
     return Container();
   }
 }
-

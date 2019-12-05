@@ -6,16 +6,18 @@
 
 import 'package:bflutter/bflutter.dart';
 import 'package:bflutter/libs/bcache.dart';
+import 'package:bflutter/provider/base_localizations.dart';
 import 'package:bflutter/provider/main_bloc.dart';
 import 'package:bflutter/widgets/app_loading.dart';
 import 'package:bflutter_poc/pages/login/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   // @nhancv 2019-10-24: Start services later
   WidgetsFlutterBinding.ensureInitialized();
   // @nhancv 10/23/2019: Init bflutter caching
-  await BCache().init();
+  await BCache.instance.init();
   // @nhancv 10/23/2019: Run Application
   runApp(MyApp());
 }
@@ -26,6 +28,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final mainBloc = MainBloc.instance;
+
   @override
   Widget build(BuildContext context) {
     /**
@@ -35,17 +39,33 @@ class _MyAppState extends State<MyApp> {
      * - Then, navigate Search screen
      * - Last, navigate to Detail screen
      */
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: AppContent(),
-    );
+    return StreamBuilder(
+        stream: mainBloc.localeBloc.stream,
+        builder: (context, snapshot) {
+          return MaterialApp(
+            locale: (snapshot.hasData ? snapshot.data : Locale('en')),
+            supportedLocales: [
+              const Locale('en'),
+              const Locale('vi'),
+            ],
+            localizationsDelegates: [
+              DefaultLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
+            home: AppContent(),
+          );
+        });
   }
 }
 
 class AppContent extends StatelessWidget {
+  final mainBloc = MainBloc.instance;
+
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) => onAfterBuild(context));
@@ -56,7 +76,7 @@ class AppContent extends StatelessWidget {
         children: <Widget>[
           LoginScreen(),
           StreamBuilder(
-            stream: MainBloc().appLoading.stream,
+            stream: mainBloc.appLoading.stream,
             builder: (context, snapshot) =>
                 snapshot.hasData && snapshot.data ? AppLoading() : SizedBox(),
           ),
@@ -67,6 +87,6 @@ class AppContent extends StatelessWidget {
 
   // @nhancv 10/25/2019: After widget initialized.
   void onAfterBuild(BuildContext context) {
-    MainBloc().initContext(context);
+    mainBloc.initContext(context);
   }
 }

@@ -24,7 +24,7 @@ class Api {
 
     header.addAll({"CUSTOM-HEADER-KEY": "CUSTOM-HEADER-KEY"});
 
-    final piece = await BCache().queryId(Constants.bCacheAuthKey);
+    final piece = await BCache.instance.queryId(Constants.bCacheAuthKey);
     if (piece != null && piece.body != null) {
       header.addAll({"Authorization": "Bearer " + piece.body});
     }
