@@ -4,6 +4,8 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
+import 'dart:ui' as ui;
+
 import 'package:bflutter/bflutter.dart';
 import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter/provider/base_localizations.dart';
@@ -43,7 +45,10 @@ class _MyAppState extends State<MyApp> {
         stream: mainBloc.localeBloc.stream,
         builder: (context, snapshot) {
           return MaterialApp(
-            locale: (snapshot.hasData ? snapshot.data : Locale('en')),
+            locale: (snapshot.hasData
+                ? snapshot.data
+                : Locale(ui.window.locale.languageCode,
+                    ui.window.locale.countryCode)),
             supportedLocales: [
               const Locale('en'),
               const Locale('vi'),
