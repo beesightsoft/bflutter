@@ -2,12 +2,18 @@
 
 BeeSight Soft Flutter core using BLoC Design Pattern (Business Logic Component)
 
-Post: https://medium.com/beesightsoft/flutter-state-management-2455c60cc423
+## For newbie
 
-![BLoC](https://miro.medium.com/proxy/1*7Po1O16EonRIY8ERetqzmg.png)
+- [[Newbie] Chapter 1. Flutter overview](https://medium.com/beesightsoft/flutter-state-management-2455c60cc423)
+
+- [[Newbie] Chapter 2. Flutter overview](https://medium.com/beesightsoft/flutter-state-management-2455c60cc423)
+
+- [[Newbie] Chapter 3. Flutter overview](https://medium.com/beesightsoft/flutter-state-management-2455c60cc423)
+
+- [[Newbie] Chapter 4. Flutter overview](https://medium.com/beesightsoft/flutter-state-management-2455c60cc423)
+
+- [[Newbie] Chapter 5. Flutter overview](https://medium.com/beesightsoft/flutter-state-management-2455c60cc423)
 
 ## Flutter package
 
 https://pub.dartlang.org/packages/bflutter
-
-Pub Authorized by nhan.cao@beesightsoft.com
