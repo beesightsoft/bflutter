@@ -1,3 +1,7 @@
+## [0.1.8+1] - Dec 05, 2019.
+
+* Update readme
+
 ## [0.1.8] - Dec 05, 2019.
 
 * Add i18n approach
