@@ -71,7 +71,7 @@ class LoginBloc with AppBloc {
       mainBloc.appLoading.push(false);
       if (data.statusCode != 500) {
         try {
-          final loginResponse = LoginResponse.fromJson(json.decode(data.body));
+          final loginResponse = LoginResponse(json.decode(data.body));
           // @nhancv 10/25/2019: Success response
           if (loginResponse.accessToken != null &&
               loginResponse.accessToken.isNotEmpty) {

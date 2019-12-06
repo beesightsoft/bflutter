@@ -24,10 +24,9 @@ Successful
     "access_token": "nhancv_dep_trai",
     "refresh_token": "call_nhancv_dep_trai"
 }
-
  */
 
-import 'package:bflutter_poc/models/remote/base_response.dart';
+import 'base_response.dart';
 
 class LoginResponse extends BaseResponse {
   String tokenType;
@@ -35,36 +34,31 @@ class LoginResponse extends BaseResponse {
   String accessToken;
   String refreshToken;
 
-  LoginResponse({
-    this.tokenType,
-    this.expiresIn,
-    this.accessToken,
-    this.refreshToken,
-    error,
-    data,
-    errors,
-  }) : super(error: error, data: data, errors: errors);
+  LoginResponse(Map<String, dynamic> fullJson) : super(fullJson) {
+    tokenType= fullJson["token_type"];
+    expiresIn= fullJson["expires_in"];
+    accessToken= fullJson["access_token"];
+    refreshToken= fullJson["refresh_token"];
+  }
 
-  factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
-        tokenType: json["token_type"],
-        expiresIn: json["expires_in"],
-        accessToken: json["access_token"],
-        refreshToken: json["refresh_token"],
-        error: json["error"],
-        data: json["data"],
-        errors: json["errors"] != null
-            ? List<BaseError>.from(
-                json["errors"].map((x) => BaseError.fromJson(x)))
-            : <BaseError>[],
-      );
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "token_type": tokenType,
+      "expires_in": expiresIn,
+      "access_token": accessToken,
+      "refresh_token": refreshToken,
+      ... super.toJson()
+    };
+  }
 
-  Map<String, dynamic> toJson() => {
-        "token_type": tokenType,
-        "expires_in": expiresIn,
-        "access_token": accessToken,
-        "refresh_token": refreshToken,
-        "error": error,
-        "data": data,
-        "errors": List<dynamic>.from(errors.map((x) => x.toJson())),
-      };
+  @override
+  Map<String, dynamic> dataToJson(data) {
+    return null;
+  }
+
+  @override
+  jsonToData(Map<String, dynamic> fullJson) {
+    return null;
+  }
 }
