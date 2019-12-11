@@ -1,3 +1,7 @@
+## [0.1.8+3] - Dec 05, 2019.
+
+* Option init BCache
+
 ## [0.1.8+2] - Dec 05, 2019.
 
 * Remove unused

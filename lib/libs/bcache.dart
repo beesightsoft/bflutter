@@ -40,15 +40,17 @@ class BCache {
   Future<Database> database;
 
   /// @nhancv 10/7/2019: Table name
-  final _tableName = 'cache_data';
+  String _tableName;
 
   /// @nhancv 10/7/2019: Init database connection
-  Future<void> init() async {
+  Future<void> init(
+      {databaseName = "bcache_database.db", tableName = 'cache_data'}) async {
+    this._tableName = tableName;
     database = openDatabase(
       // Set the path to the database. Note: Using the `join` function from the
       // `path` package is best practice to ensure the path is correctly
       // constructed for each platform.
-      join(await getDatabasesPath(), 'bcache_database.db'),
+      join(await getDatabasesPath(), databaseName),
       // When the database is first created, create a table to store data.
       onCreate: (db, version) {
         // Data types: https://www.sqlite.org/datatype3.html

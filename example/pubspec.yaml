@@ -16,7 +16,7 @@ dependencies:
       url: git://github.com/beesightsoft/bflutter
       path: bflutter
 
-  cached_network_image: ^2.0.0-rc.1
+  cached_network_image: ^1.1.3
   http: ^0.12.0+2
 
 dev_dependencies:
