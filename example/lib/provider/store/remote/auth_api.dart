@@ -4,6 +4,8 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
+import 'dart:convert';
+
 import 'package:bflutter_poc/provider/store/remote/api.dart';
 import 'package:http/http.dart' as http;
 
@@ -13,10 +15,10 @@ class AuthApi extends Api {
     final header = await getHeader();
     return http.post("https://nhancv.free.beeceptor.com/login",
         headers: header,
-        body: {
+        body: json.encode({
           "username": "username",
           "password": "password",
-        });
+        }));
   }
 
   /// @nhancv 10/24/2019: Login
@@ -24,9 +26,9 @@ class AuthApi extends Api {
     final header = await getHeader();
     return http.post("https://nhancv.free.beeceptor.com/login-err",
         headers: header,
-        body: {
+        body: json.encode({
           "username": "username",
           "password": "password",
-        });
+        }));
   }
 }

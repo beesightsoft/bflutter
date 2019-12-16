@@ -14,7 +14,9 @@ class Api {
 
   // @nhancv 10/24/2019: Get header
   Future<Map<String, String>> getHeader() async {
-    Map<String, String> header = {};
+    Map<String, String> header = {
+      'content-type': 'application/json'
+    };
     return header;
   }
 
