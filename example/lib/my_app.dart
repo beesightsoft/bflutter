@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
           return MaterialApp(
             locale: (snapshot.hasData
                 ? snapshot.data
-                : Locale(ui.window.locale.languageCode ?? ' en',
+                : Locale(ui.window.locale?.languageCode ?? ' en',
                     ui.window.locale.countryCode)),
             supportedLocales: [
               const Locale('en'),
