@@ -8,6 +8,7 @@ import 'package:bflutter/bflutter.dart';
 import 'package:bflutter/provider/base_localizations.dart';
 import 'package:bflutter/widgets/app_network.dart';
 import 'package:bflutter_poc/pages/login/login_bloc.dart';
+import 'package:bflutter_poc/provider/i18n/app_localizations.dart';
 import 'package:bflutter_poc/widgets/bapp_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: BAppBar(
-        text: DefaultLocalizations.of(context).translate('title'),
+        text: AppLocalizations.of(context).translate('title'),
       ),
       body: GestureDetector(
         child: Stack(
@@ -61,7 +62,7 @@ class LoginScreen extends StatelessWidget {
                         child: Text('lang'),
                         onPressed: () {
                           final currentLocale =
-                              DefaultLocalizations.of(context).locale;
+                              AppLocalizations.of(context).locale;
                           if (currentLocale == Locale('en')) {
                             mainBloc.localeBloc.push(Locale('vi'));
                           } else {

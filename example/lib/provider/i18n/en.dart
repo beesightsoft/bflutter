@@ -1,0 +1,3 @@
+const en = {
+  'title': 'Hello'
+};

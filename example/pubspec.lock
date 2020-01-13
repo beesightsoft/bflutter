@@ -8,6 +8,33 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.38.0"
+  appcenter:
+    dependency: "direct main"
+    description:
+      path: "src/appcenter"
+      ref: HEAD
+      resolved-ref: "54d4688a716951d1e133d8e98a21722df8bf3735"
+      url: "git://github.com/nhancv/flutter_plugin_appcenter.git"
+    source: git
+    version: "0.2.1"
+  appcenter_analytics:
+    dependency: "direct main"
+    description:
+      path: "src/appcenter_analytics"
+      ref: HEAD
+      resolved-ref: "54d4688a716951d1e133d8e98a21722df8bf3735"
+      url: "git://github.com/nhancv/flutter_plugin_appcenter.git"
+    source: git
+    version: "0.2.1"
+  appcenter_crashes:
+    dependency: "direct main"
+    description:
+      path: "src/appcenter_crashes"
+      ref: HEAD
+      resolved-ref: "54d4688a716951d1e133d8e98a21722df8bf3735"
+      url: "git://github.com/nhancv/flutter_plugin_appcenter.git"
+    source: git
+    version: "0.2.1"
   archive:
     dependency: transitive
     description:

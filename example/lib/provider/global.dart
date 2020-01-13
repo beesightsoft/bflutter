@@ -24,7 +24,12 @@ class Global {
 
   static final Global _instance = Global._private();
 
-  factory Global() => _instance;
+  factory Global({Env environment}) {
+    if (environment != null) {
+      _instance.env = environment;
+    }
+    return _instance;
+  }
 
-  Env env = Env.dev();
+  Env env;
 }

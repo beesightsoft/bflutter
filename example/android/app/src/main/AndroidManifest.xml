@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bflutterpoc">
+    package="com.beesightsoft.poc">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -13,7 +13,7 @@
         android:label="bflutter_poc"
         android:icon="@mipmap/ic_launcher">
         <activity
-            android:name="com.example.bflutter_poc.MainActivity"
+            android:name="com.beesightsoft.poc.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

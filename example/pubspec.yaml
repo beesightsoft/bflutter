@@ -18,6 +18,18 @@ dependencies:
 
   cached_network_image: ^2.0.0-rc.1
   http: ^0.12.0+2
+  appcenter:
+    git:
+      url: git://github.com/nhancv/flutter_plugin_appcenter.git
+      path: src/appcenter
+  appcenter_crashes:
+    git:
+      url: git://github.com/nhancv/flutter_plugin_appcenter.git
+      path: src/appcenter_crashes
+  appcenter_analytics:
+    git:
+      url: git://github.com/nhancv/flutter_plugin_appcenter.git
+      path: src/appcenter_analytics
 
 dev_dependencies:
   flutter_launcher_icons: ^0.7.3

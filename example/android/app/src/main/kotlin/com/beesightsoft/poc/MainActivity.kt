@@ -1,4 +1,4 @@
-package com.example.bflutter_poc
+package com.beesightsoft.poc
 
 import android.os.Build
 import android.os.Bundle
