@@ -22,13 +22,13 @@ class Env {
 class Global {
   Global._private();
 
-  static final Global _instance = Global._private();
+  static final Global instance = Global._private();
 
   factory Global({Env environment}) {
     if (environment != null) {
-      _instance.env = environment;
+      instance.env = environment;
     }
-    return _instance;
+    return instance;
   }
 
   Env env;

@@ -10,7 +10,7 @@ import 'package:bflutter_poc/utils/constants.dart';
 
 class Api {
   // @nhancv 10/7/2019: Get base url by env
-  final String apiBaseUrl = Global().env.apiBaseUrl;
+  final String apiBaseUrl = Global.instance.env.apiBaseUrl;
 
   // @nhancv 10/24/2019: Get header
   Future<Map<String, String>> getHeader() async {
