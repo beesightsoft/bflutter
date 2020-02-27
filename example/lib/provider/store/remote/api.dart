@@ -7,16 +7,23 @@
 import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter_poc/provider/global.dart';
 import 'package:bflutter_poc/utils/constants.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class Api {
   // @nhancv 10/7/2019: Get base url by env
   final String apiBaseUrl = Global.instance.env.apiBaseUrl;
+  final Dio dio = new Dio();
+
+  Api() {
+    if (!kReleaseMode) {
+      dio.interceptors.add(LogInterceptor(responseBody: false));
+    }
+  }
 
   // @nhancv 10/24/2019: Get header
   Future<Map<String, String>> getHeader() async {
-    Map<String, String> header = {
-      'content-type': 'application/json'
-    };
+    Map<String, String> header = {'content-type': 'application/json'};
     return header;
   }
 

@@ -4,7 +4,6 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'dart:convert';
 import 'dart:math';
 
 import 'package:bflutter/bflutter.dart';
@@ -16,6 +15,7 @@ import 'package:bflutter_poc/models/remote/log_in_response.dart';
 import 'package:bflutter_poc/pages/home/home_screen.dart';
 import 'package:bflutter_poc/provider/store/remote/auth_api.dart';
 import 'package:bflutter_poc/utils/constants.dart';
+import 'package:dio/dio.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc with AppBloc {
@@ -69,38 +69,41 @@ class LoginBloc with AppBloc {
     }).asyncMap((data) async {
       if (data == null) return false;
       mainBloc.appLoading.push(false);
-      if (data.statusCode != 500) {
-        try {
-          final loginResponse = LoginResponse(json.decode(data.body));
-          // @nhancv 10/25/2019: Success response
-          if (loginResponse.accessToken != null &&
-              loginResponse.accessToken.isNotEmpty) {
-            // @nhancv 10/25/2019: Store key
-            await BCache.instance.insert(Piece(
-                id: Constants.bCacheAuthKey, body: loginResponse.accessToken));
-            // @nhancv 2019-10-26: Navigate to seat map screen
-            mainBloc.navigateReplace(HomeScreen());
+      try {
+        final loginResponse = LoginResponse(data.data);
+
+        // @nhancv 10/25/2019: Success response
+        if (loginResponse.accessToken != null &&
+            loginResponse.accessToken.isNotEmpty) {
+          // @nhancv 10/25/2019: Store key
+          await BCache.instance.insert(Piece(
+              id: Constants.bCacheAuthKey, body: loginResponse.accessToken));
+          // @nhancv 2019-10-26: Navigate to seat map screen
+          mainBloc.navigateReplace(HomeScreen());
+        } else {
+          // @nhancv 10/25/2019: Parse error
+          if (loginResponse.error) {
+            final error = loginResponse.errors.first;
+            throw Exception(error != null
+                ? 'Code ${error.code ?? -1} - ${error.message ?? 'Empty'}'
+                : 'Unknow error.');
           } else {
-            // @nhancv 10/25/2019: Parse error
-            if (loginResponse.error) {
-              final error = loginResponse.errors.first;
-              throw Exception(error != null
-                  ? 'Code ${error.code ?? -1} - ${error.message ?? 'Empty'}'
-                  : 'Unknow error.');
-            } else {
-              throw Exception(data.reasonPhrase);
-            }
+            throw Exception('Error without reason');
           }
-        } catch (e) {
-          throw e;
         }
-        return null;
-      } else {
-        throw Exception(data.reasonPhrase);
+      } catch (e) {
+        throw e;
       }
+      return null;
     }).handleError((error) {
+      var errorMessage = error.toString();
+      if (error is DioError && error.type == DioErrorType.RESPONSE) {
+        final response = error.response;
+        errorMessage =
+            'Code ${response.statusCode} - ${response.statusMessage} ${response.data != null ? '\n' : ''} ${response.data}';
+      }
       mainBloc.appLoading.push(false);
-      mainBloc.showAlertDialog(error.toString());
+      mainBloc.showAlertDialog(errorMessage);
     }).listen(null);
 
     // @nhancv 10/8/2019: Trigger by button, we need reset latest state
