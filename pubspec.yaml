@@ -1,6 +1,6 @@
 name: bflutter
 description: BeeSight Soft Flutter core package, bloc, caching, auth, network, lifecycle, utils
-version: 0.1.8+3
+version: 0.1.8+4
 homepage: https://github.com/beesightsoft/bflutter
 authors:
   - Nhan Cao <nhancv92@gmail.com>
