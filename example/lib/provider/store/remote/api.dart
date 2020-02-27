@@ -42,6 +42,7 @@ class Api {
     return header;
   }
 
+  // @nhancv 2/27/2020: Wrap Dio Exception
   Future<Response<dynamic>> wrapE(Function() dioApi) async {
     try {
       return await dioApi();
