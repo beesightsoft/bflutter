@@ -13,22 +13,22 @@ class AuthApi extends Api {
   /// @nhancv 10/24/2019: Login
   Future<Response> signIn() async {
     final header = await getHeader();
-    return dio.post("https://nhancv.free.beeceptor.com/login",
+    return wrapE(() => dio.post("https://nhancv.free.beeceptor.com/login",
         options: Options(headers: header),
         data: json.encode({
           "username": "username",
           "password": "password",
-        }));
+        })));
   }
 
   /// @nhancv 10/24/2019: Login
   Future<Response> signInWithError() async {
     final header = await getHeader();
-    return dio.post("https://nhancv.free.beeceptor.com/login-err",
+    return wrapE(() => dio.post("https://nhancv.free.beeceptor.com/login-err",
         options: Options(headers: header),
         data: json.encode({
           "username": "username",
           "password": "password",
-        }));
+        })));
   }
 }

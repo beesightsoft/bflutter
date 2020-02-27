@@ -15,7 +15,6 @@ import 'package:bflutter_poc/models/remote/log_in_response.dart';
 import 'package:bflutter_poc/pages/home/home_screen.dart';
 import 'package:bflutter_poc/provider/store/remote/auth_api.dart';
 import 'package:bflutter_poc/utils/constants.dart';
-import 'package:dio/dio.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc with AppBloc {
@@ -96,14 +95,8 @@ class LoginBloc with AppBloc {
       }
       return null;
     }).handleError((error) {
-      var errorMessage = error.toString();
-      if (error is DioError && error.type == DioErrorType.RESPONSE) {
-        final response = error.response;
-        errorMessage =
-            'Code ${response.statusCode} - ${response.statusMessage} ${response.data != null ? '\n' : ''} ${response.data}';
-      }
       mainBloc.appLoading.push(false);
-      mainBloc.showAlertDialog(errorMessage);
+      mainBloc.showAlertDialog(error.toString());
     }).listen(null);
 
     // @nhancv 10/8/2019: Trigger by button, we need reset latest state

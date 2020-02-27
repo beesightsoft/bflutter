@@ -4,6 +4,8 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
+import 'dart:async';
+
 import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter_poc/provider/global.dart';
 import 'package:bflutter_poc/utils/constants.dart';
@@ -38,5 +40,24 @@ class Api {
       header.addAll({"Authorization": "Bearer " + piece.body});
     }
     return header;
+  }
+
+  Future<Response<dynamic>> wrapE(Function() dioApi) async {
+    try {
+      return await dioApi();
+    } catch (error) {
+      var errorMessage = error.toString();
+      if (error is DioError && error.type == DioErrorType.RESPONSE) {
+        final response = error.response;
+        errorMessage =
+        'Code ${response.statusCode} - ${response.statusMessage} ${response.data != null ? '\n' : ''} ${response.data}';
+        throw new DioError(
+            request: error.request,
+            response: error.response,
+            type: error.type,
+            error: errorMessage);
+      }
+      throw error;
+    }
   }
 }
