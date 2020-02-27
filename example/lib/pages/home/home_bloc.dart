@@ -4,8 +4,6 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-import 'dart:convert';
-
 import 'package:bflutter/bflutter.dart';
 import 'package:bflutter_poc/models/remote/user_detail.dart';
 import 'package:bflutter_poc/provider/store/remote/detail_api.dart';
@@ -25,11 +23,7 @@ class HomeBloc {
     getUserInfo.logic = (Observable<String> input) =>
         input.asyncMap(detailApi.getUserInfo).asyncMap(
           (data) {
-            if (data.statusCode == 200) {
-              return UserDetail.fromJson(json.decode(data.body));
-            } else {
-              throw Exception(data.body);
-            }
+            return UserDetail.fromJson(data.data);
           },
         );
   }

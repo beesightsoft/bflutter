@@ -79,6 +79,7 @@ class AppContent extends StatelessWidget {
       body: Stack(
         children: <Widget>[
           LoginScreen(),
+//          HomeScreen(),
           StreamBuilder(
             stream: mainBloc.appLoading.stream,
             builder: (context, snapshot) =>

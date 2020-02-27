@@ -43,18 +43,18 @@ class SearchBloc {
                 return NetCache(fromNet: true, data: <User>[]);
               }
               if (data.statusCode == 200) {
-                final List<User> result = json
-                    .decode(data.body)['items']
+                final List<User> result = data.data['items']
                     .cast<Map<String, dynamic>>()
                     .map<User>((item) => User.fromJson(item))
                     .toList();
                 // @nhancv 10/7/2019: Storage data from network to local
-                await BCache.instance.insert(Piece(id: input, body: data.body));
+                await BCache.instance
+                    .insert(Piece(id: input, body: jsonEncode(data.data)));
 
                 // @nhancv 10/7/2019: Return latest data from network
                 return NetCache(fromNet: true, data: result);
               } else {
-                throw (data.body);
+                throw (data.data);
               }
             }).handleError((error) {}),
             // Get data from local storage
