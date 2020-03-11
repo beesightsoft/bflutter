@@ -5,7 +5,6 @@
  */
 
 import 'package:bflutter/bflutter.dart';
-import 'package:bflutter/provider/base_localizations.dart';
 import 'package:bflutter/widgets/app_network.dart';
 import 'package:bflutter_poc/pages/login/login_bloc.dart';
 import 'package:bflutter_poc/provider/i18n/app_localizations.dart';

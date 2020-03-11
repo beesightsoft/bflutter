@@ -5,13 +5,13 @@
  */
 
 import 'package:bflutter_poc/provider/store/remote/api.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class SearchApi extends Api {
   /// @nhancv 10/7/2019: Search user request
-  Future<http.Response> searchUsers(String query) async {
+  Future<Response> searchUsers(String query) async {
     final header = await getHeader();
     String url = '$apiBaseUrl/search/users?q=$query';
-    return http.get(url, headers: header);
+    return wrapE(() => dio.get(url, options: Options(headers: header)));
   }
 }

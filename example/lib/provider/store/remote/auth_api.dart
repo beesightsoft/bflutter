@@ -7,28 +7,28 @@
 import 'dart:convert';
 
 import 'package:bflutter_poc/provider/store/remote/api.dart';
-import 'package:http/http.dart' as http;
+import 'package:dio/dio.dart';
 
 class AuthApi extends Api {
   /// @nhancv 10/24/2019: Login
-  Future<http.Response> signIn() async {
+  Future<Response> signIn() async {
     final header = await getHeader();
-    return http.post("https://nhancv.free.beeceptor.com/login",
-        headers: header,
-        body: json.encode({
+    return wrapE(() => dio.post("https://nhancv.free.beeceptor.com/login",
+        options: Options(headers: header),
+        data: json.encode({
           "username": "username",
           "password": "password",
-        }));
+        })));
   }
 
   /// @nhancv 10/24/2019: Login
-  Future<http.Response> signInWithError() async {
+  Future<Response> signInWithError() async {
     final header = await getHeader();
-    return http.post("https://nhancv.free.beeceptor.com/login-err",
-        headers: header,
-        body: json.encode({
+    return wrapE(() => dio.post("https://nhancv.free.beeceptor.com/login-err",
+        options: Options(headers: header),
+        data: json.encode({
           "username": "username",
           "password": "password",
-        }));
+        })));
   }
 }
