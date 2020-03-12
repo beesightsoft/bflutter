@@ -10,6 +10,7 @@ import 'package:bflutter/bflutter.dart';
 import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter/provider/main_bloc.dart';
 import 'package:bflutter/widgets/app_loading.dart';
+import 'package:bflutter_poc/pages/base/normal_screen.dart';
 import 'package:bflutter_poc/pages/login/login_screen.dart';
 import 'package:bflutter_poc/provider/i18n/app_localizations.dart';
 import 'package:flutter/material.dart';

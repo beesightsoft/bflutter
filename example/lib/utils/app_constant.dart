@@ -4,6 +4,7 @@
  * Copyright (c) 2019 Beesight Soft. All rights reserved.
  */
 
-class Constants {
-  static const bCacheAuthKey = 'auth_token';
+class AppConstant {
+  static const bCacheAuthInfoKey = 'auth_info';
+
 }

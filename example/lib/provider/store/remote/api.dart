@@ -8,7 +8,7 @@ import 'dart:async';
 
 import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter_poc/provider/global.dart';
-import 'package:bflutter_poc/utils/constants.dart';
+import 'package:bflutter_poc/utils/app_constant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
@@ -35,7 +35,7 @@ class Api {
 
     header.addAll({"CUSTOM-HEADER-KEY": "CUSTOM-HEADER-KEY"});
 
-    final piece = await BCache.instance.queryId(Constants.bCacheAuthKey);
+    final piece = await BCache.instance.queryId(AppConstant.bCacheAuthInfoKey);
     if (piece != null && piece.body != null) {
       header.addAll({"Authorization": "Bearer " + piece.body});
     }
