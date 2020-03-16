@@ -16,7 +16,7 @@ class AppImages {
   static const icSearch = 'assets/base/icons/ic_search.png';
   static const icWarning = 'assets/base/icons/ic_warning.png';
   static const icEmpty = 'assets/base/icons/ic_empty.png';
-  static const imgBssFullLogo = 'assets/base/icons/img_bss_full_logo.png';
+  static const icAppIcon = 'assets/base/icons/app_icon.png';
 
 }
 

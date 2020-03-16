@@ -17,8 +17,8 @@ class BAppBar extends AppBar {
     backgroundColor: Color.fromARGB(255, 36, 55, 172),
     title: text != null
         ? Container(
-        child: Text(text ?? "BFlutter POC"), width: 123, height: 28)
-        : Image.asset(AppImages.imgBssFullLogo, width: 123, height: 28),
+        child: Text(text ?? "Flutter"), width: 123, height: 28)
+        : Image.asset(AppImages.icAppIcon, width: 123, height: 28),
   );
 }
 
