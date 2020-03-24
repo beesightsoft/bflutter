@@ -13,6 +13,7 @@ import 'package:bflutter/widgets/app_loading.dart';
 import 'package:bflutter_poc/pages/base/normal_screen.dart';
 import 'package:bflutter_poc/pages/login/login_screen.dart';
 import 'package:bflutter_poc/provider/i18n/app_localizations.dart';
+import 'package:bflutter_poc/provider/store/store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -20,8 +21,8 @@ Future<void> myMain() async {
   // @nhancv 2019-10-24: Start services later
   WidgetsFlutterBinding.ensureInitialized();
 
-//  // @nhancv 12/27/2019: Start store
-//  await DefaultStore.instance.init();
+  // @nhancv 12/27/2019: Start store
+  await DefaultStore.instance.init();
 //  await DefaultStore.instance.logout();
 //  BullMQ.instance.start();
 

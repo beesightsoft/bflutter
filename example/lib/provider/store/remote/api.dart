@@ -6,11 +6,11 @@
 
 import 'dart:async';
 
-import 'package:bflutter/libs/bcache.dart';
 import 'package:bflutter_poc/provider/global.dart';
-import 'package:bflutter_poc/utils/app_constant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+
+import '../store.dart';
 
 class Api {
   // @nhancv 10/7/2019: Get base url by env
@@ -35,9 +35,9 @@ class Api {
 
     header.addAll({"CUSTOM-HEADER-KEY": "CUSTOM-HEADER-KEY"});
 
-    final piece = await BCache.instance.queryId(AppConstant.bCacheAuthInfoKey);
-    if (piece != null && piece.body != null) {
-      header.addAll({"Authorization": "Bearer " + piece.body});
+    final accessToken = await DefaultStore.instance.getAuthToken();
+    if (accessToken != null) {
+      header.addAll({"Authorization": "Bearer " + accessToken});
     }
     return header;
   }
@@ -51,7 +51,7 @@ class Api {
       if (error is DioError && error.type == DioErrorType.RESPONSE) {
         final response = error.response;
         errorMessage =
-        'Code ${response.statusCode} - ${response.statusMessage} ${response.data != null ? '\n' : ''} ${response.data}';
+            'Code ${response.statusCode} - ${response.statusMessage} ${response.data != null ? '\n' : ''} ${response.data}';
         throw new DioError(
             request: error.request,
             response: error.response,

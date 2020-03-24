@@ -14,6 +14,7 @@ import 'package:bflutter_poc/models/remote/log_in_request.dart';
 import 'package:bflutter_poc/models/remote/log_in_response.dart';
 import 'package:bflutter_poc/pages/home/home_screen.dart';
 import 'package:bflutter_poc/provider/store/remote/auth_api.dart';
+import 'package:bflutter_poc/provider/store/store.dart';
 import 'package:bflutter_poc/utils/app_constant.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -75,8 +76,7 @@ class LoginBloc with AppBloc {
         if (loginResponse.accessToken != null &&
             loginResponse.accessToken.isNotEmpty) {
           // @nhancv 10/25/2019: Store key
-          await BCache.instance.insert(Piece(
-              id: AppConstant.bCacheAuthInfoKey, body: loginResponse.accessToken));
+          await DefaultStore.instance.saveAuthToken(loginResponse.accessToken);
           // @nhancv 2019-10-26: Navigate to seat map screen
           mainBloc.navigateReplace(HomeScreen());
         } else {
