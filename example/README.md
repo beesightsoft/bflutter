@@ -2,20 +2,6 @@
 
 BeeSight Soft Flutter Core Proof of concept
 
-
-## Integrate bflutter in dev mode
-
-- Clone bflutter and place it in the same folder root with bflutter_poc
-https://github.com/beesightsoft/bflutter
-
-- Check dependencies pubspec.yaml of bflutter_poc
-```
-dependencies:
-  ...
-  bflutter:
-    path: ../
-```
-
 ## Structure
 
 ```
@@ -55,3 +41,10 @@ dependencies:
 flutter pub get
 flutter pub run flutter_launcher_icons:main
 ```
+
+## Clone initial setup
+
+- Search and Replace All `bflutter_poc` to new package id
+- Search and Replace All `BFlutter App` to new App display name
+- Search and Replace All `com.beesightsoft.poc` to new App bundle id
+- Update directory folder path name of Android (`android/app/src/main/kotlin/`) same with new App bundle id
