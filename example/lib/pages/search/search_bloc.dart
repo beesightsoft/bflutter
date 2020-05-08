@@ -25,18 +25,18 @@ class SearchBloc {
   }
 
   void _initLogic() {
-    searchUser.logic = (Observable<String> input) => input
+    searchUser.logic = (Stream<String> input) => input
             .distinct()
             .debounceTime(Duration(milliseconds: 500))
             .flatMap((input) {
           // @nhancv 10/7/2019: Show loading
           loading.push(true);
-          if (input.isEmpty) return Observable.just(null);
+          if (input.isEmpty) return Stream.value(null);
 
           // @nhancv 10/7/2019: Combine with cache data
-          return Observable<NetCache<List<User>>>.merge([
+          return Rx.merge<NetCache<List<User>>>([
             // Get data from api
-            Observable.fromFuture(searchApi.searchUsers(input))
+            Stream.fromFuture(searchApi.searchUsers(input))
                 .asyncMap((data) async {
               print('From net: $data');
               if (data == null) {
@@ -58,7 +58,7 @@ class SearchBloc {
               }
             }).handleError((error) {}),
             // Get data from local storage
-            Observable.fromFuture(BCache.instance.queryId(input)).map((data) {
+            Stream.fromFuture(BCache.instance.queryId(input)).map((data) {
               print('From cache: $data');
               if (data == null) {
                 return NetCache(data: <User>[]);

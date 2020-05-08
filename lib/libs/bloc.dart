@@ -9,7 +9,7 @@ class Bloc<I, O> {
 
   /// @nhancv 2019-10-04: Dynamic logic
   /// Transfer data from input to mapper to output
-  set logic(Observable<O> Function(Observable<I> input) mapper) {
+  set logic(Stream<O> Function(Stream<I> input) mapper) {
     mapper(_inputSubject).listen(_outputSubject.sink.add);
   }
 
@@ -29,7 +29,7 @@ class Bloc<I, O> {
   }
 
   /// @nhancv 2019-10-04: Build a BLoC instance with logic function as a parameter
-  static Bloc build<I, O>(Observable<O> Function(Observable<I> input) mapper) {
+  static Bloc build<I, O>(Stream<O> Function(Stream<I> input) mapper) {
     var blocUnit = Bloc<I, O>();
     blocUnit.logic = mapper;
     return blocUnit;
@@ -39,6 +39,6 @@ class Bloc<I, O> {
 /// Default Bloc
 class BlocDefault<I> extends Bloc<I, I> {
   BlocDefault() {
-    this.logic = (Observable<I> data) => data;
+    this.logic = (Stream<I> data) => data;
   }
 }

@@ -20,7 +20,7 @@ class HomeBloc {
   }
 
   void _initLogic() {
-    getUserInfo.logic = (Observable<String> input) =>
+    getUserInfo.logic = (Stream<String> input) =>
         input.asyncMap(detailApi.getUserInfo).asyncMap(
           (data) {
             return UserDetail.fromJson(data.data);

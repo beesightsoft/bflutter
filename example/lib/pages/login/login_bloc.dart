@@ -40,14 +40,14 @@ class LoginBloc with AppBloc {
     passwordInput.logic = (input) => input.map((d) => d.isNotEmpty);
 
     // @nhancv 10/25/2019: Combine logic to check total inputs are valid
-    Observable.combineLatest3(usernameInput.stream, passwordInput.stream,
+    Rx.combineLatest3(usernameInput.stream, passwordInput.stream,
         Networking().networkStatus.stream, (uValid, pValid, network) {
       validInput
           .push(uValid && pValid && (network != ConnectivityStatus.Offline));
     }).listen(null);
 
     // @nhancv 10/25/2019: Logic trigger sign in
-    Observable.combineLatest4(
+    Rx.combineLatest4(
         usernameInput.input,
         passwordInput.input,
         validInput.stream,
@@ -101,7 +101,7 @@ class LoginBloc with AppBloc {
 
     // @nhancv 10/8/2019: Trigger by button, we need reset latest state
     loginTrigger.logic =
-        (Observable<bool> input) => input.map((input) => false);
+        (Stream<bool> input) => input.map((input) => false);
   }
 
   @override

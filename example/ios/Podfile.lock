@@ -19,6 +19,8 @@ PODS:
   - connectivity (0.0.1):
     - Flutter
     - Reachability
+  - connectivity_macos (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -35,6 +37,7 @@ DEPENDENCIES:
   - appcenter_analytics (from `.symlinks/plugins/appcenter_analytics/ios`)
   - appcenter_crashes (from `.symlinks/plugins/appcenter_crashes/ios`)
   - connectivity (from `.symlinks/plugins/connectivity/ios`)
+  - connectivity_macos (from `.symlinks/plugins/connectivity_macos/ios`)
   - Flutter (from `Flutter`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
@@ -54,6 +57,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/appcenter_crashes/ios"
   connectivity:
     :path: ".symlinks/plugins/connectivity/ios"
+  connectivity_macos:
+    :path: ".symlinks/plugins/connectivity_macos/ios"
   Flutter:
     :path: Flutter
   path_provider:
@@ -66,7 +71,8 @@ SPEC CHECKSUMS:
   appcenter: d85aaaf534125cf92375577f086ca0925c817d1d
   appcenter_analytics: 134239ec65a6097fee5f0407e24423f583bd5942
   appcenter_crashes: bfde7d247f431a7bbe6b038709261f0432c4b2a6
-  connectivity: 6e94255659cc86dcbef1d452ad3e0491bb1b3e75
+  connectivity: c4130b2985d4ef6fd26f9702e886bd5260681467
+  connectivity_macos: e2e9731b6b22dda39eb1b128f6969d574460e191
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259

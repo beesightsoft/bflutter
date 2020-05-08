@@ -22,7 +22,7 @@ class DetailBloc {
 
   // @nhancv 10/7/2019: Init logic
   void _initLogic() {
-    getUserInfo.logic = (Observable<String> input) => input
+    getUserInfo.logic = (Stream<String> input) => input
         .map((input) {
           loading.push(true);
           return input;
