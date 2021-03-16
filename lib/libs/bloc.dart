@@ -21,6 +21,12 @@ class Bloc<I, O> {
 
   /// @nhancv 2019-10-04: Stream output from BLoC
   Stream<O> get stream => _outputSubject;
+  
+  /// @thanhtq 2020-11-24: Receive value from input stream
+  I get inputValue => _inputSubject.value;
+
+  /// @thanhtq 2020-11-24: Receive value from output stream
+  O get outputValue => _outputSubject.value;
 
   /// @nhancv 2019-10-04: Dispose BLoC
   void dispose() {
