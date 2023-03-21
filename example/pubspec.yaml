@@ -16,7 +16,7 @@ dependencies:
       url: git://github.com/beesightsoft/bflutter
 
   cached_network_image: ^2.0.0-rc.1
-  dio: ^3.0.9
+  dio: ">=3.0.9 <6.0.0"
   appcenter:
     git:
       url: git://github.com/nhancv/flutter_plugin_appcenter.git
